@@ -1,0 +1,203 @@
+/**
+* Developer can define page level variables at the beginning of the each sqlx file.
+*/
+char 	pageLevelVariableExample1;
+int 	pageLevelVariableExample2;
+
+
+/**
+* "page.access" trigger function is executed before loading page for the first time.
+* If it returns true, page loading processing goes without blocking.
+* Otherwise, page loading stops.
+*
+* It is optional. If it is not exists, it assumed that the page is public.
+*/
+bool page.access() {
+	return :Session.authenticated;
+}
+
+
+
+/**
+* "page.load" trigger function is executed once for each file request if page access granted and the "page.load" function is exists.
+*/
+void page.load() {
+
+	/*	these sql commands are valid for Oracle and PostgreSQL. If you need to write sql command(s) specific to just one of database system
+	developer should get the type of database system with get_database_type('default') function and execute statement accordingly.
+	*/
+	rsCounties =	select county_name as label, county_id as value, province_id as province_id
+					from
+					SODIUM_DEMO.counties
+					order by
+					county_name;
+	populate_datalist('counties', rsCounties);
+
+	rsProvinces =	select province_name as label, province_id as value
+					from
+					SODIUM_DEMO.provinces
+					order by
+					province_name;
+	populate_datalist('provinces', rsProvinces);
+
+	rsColors =	select color_name as label, color_id as value
+				from
+				SODIUM_DEMO.colors
+				order by
+				color_name;
+	populate_datalist('colors', rsColors);
+
+	refresh_block('deps');
+}
+
+
+/**
+* For each datablock row, "post_query" trigger function is executed if exists. Developers can read and set block item values. As shown in the example below;
+* 	Datablock has 2 formula columns (dep_logo, employee_count). (One of them is binary image). For each datablock's row, values of the formula columns are obtained
+*  from appropriate select statement column.
+*
+* 	If :deps.dep_id is empty, it means that row is empty and no need to execute a select command.
+*
+* 	For different database systems, internal procedure/strategy is different for storing and reading blob data from database,
+*  so developer should execute different sql command to get blob content.
+*/
+void deps.post_query() {
+	char dbType = get_database_type('default');
+
+	if (:deps.dep_id is not null) then
+		/** An example of using blob data as image tag source */
+		if (dbType == 'oracle') then
+			recordSetLogo = select
+								dep_logo
+								from
+								SODIUM_DEMO.deps_details d
+							where
+								dep_id = :deps.dep_id;
+
+			:deps.dep_logo = recordSetLogo.dep_logo;
+		end if;
+
+		if (dbType == 'postgresql') then
+			recordSetLogo = select employee_photo as dep_logo
+								from
+								SODIUM_DEMO.employee_photo e
+							where
+								emp_id = 15;
+			/*	This feature is not implemented at the moment for PostgreSQL database
+				Returning basse64 encoded static image as departmen logo 
+			*/
+			:deps.dep_logo = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAutJREFUeNq0lctPE0Ecx38zu/RFS1EryqtgJFA08YCiMZIAQQ4eRG8eDGdPJiYeTIwHTfwPiAcvXIwXLwoXPaDxkWgQ6islKlJLSQWLUraPLTv7Gme32zoF9KSTfLO7v53vZ3d/M7/fIth+IO6INt2jjoA7bjHCJoAlzCRw59YwHYjBnfMPqAKWQYKjGkfCJqAF0xwZjipQtA3MxeSG87VhOOYegVrUCy7UZM9S6TLIdAamySTclZdYhFhRHloGYg7mgZv1Zzztvgud7V1tbQ2twYA34LJmF4p5dXF1KTufnE+SxeJtuCZNsLDCQU0+RyKTF27Unw101l8e6hns3u0PBalORVVVkcaEKBJDgV3+cGM4tKKmI+ohlIGnygKX00rSBfszz/n2uXv81wd6+rt1orsZCHRdr1Imk2F2Kob3hutSxW8thsd8AXNaln9D7CTfA6O+0UgkMuwVvEFFUbbAcrkcTA8+AtOk8E6KiQiDmMFSDqZItAzEVQviRkdDdaFgPp8HSZKAEAL5Qh7Sq2lIJBJwv2scUqkUnKoZgNhcDKhKg5aH+1IkcouCAdFGAQsuWZYhOjwFHQ96oagWgRoUov1T9kRBEODAwxM2QtEUl+Wp+Ln9VRo6BcMw4ErHRYjH4/B26AlQoQQTRdHWwcd9AH57+UAXddvDD37DmrBBV34WfqiXPl61g+vr6xA9zsGeM9gOdsNXkgpEtTwVvwOklXLKm6+/p5ezwk4B+j6droBs2CsGa/gNs6RIxazl4Tc25mpTgw/apPR1LYlNRFAzgsOxkyXYLIM1V8NMwyAkJSctD1eGVKiq5wWjSPdjmeTkiKvVW4f2YPHWl3GAVq6ymcyCTgovM3FzyRiDe2TaKcEKsLpJvNHjZgPNqEtyi6mZIm4SRFyLMUsONSSdkPeFtY1n0mczoY3BHTLhwPRy9/lzcziCw9ACI+yql0VLzcGAZbYSM5CCSZg1/9oc/nn7+i8N9p/8An4JMADxhH+xHfuiKwAAAABJRU5ErkJggg==';
+		end if;
+
+		recordSetPersCount =	select 	count(*) employee_count
+									from
+									SODIUM_DEMO.employees
+								where
+									dep_id = :deps.dep_id;
+		
+
+		:deps.employee_count = recordSetPersCount.employee_count;
+
+	else
+		
+		/*  s */
+	end if;
+}
+
+/**
+* 	"row_selected" trigger function is executed (if exists) when application user clicks/visits a row of a data block. (Revisiting the same row more than once does not result in event generation.)
+*	In the example below, we are refreshing the detail block whenever active row of the master data block changed.
+*/
+void deps.row_selected() {
+	refresh_block('emps');
+}
+
+/**
+* Additional to refreshing detail block of the emps datablock, we are also chechking the current value of "has_car" check box in that example.
+* If it is in checked state, showing the car block.
+*/
+void emps.row_selected() {
+
+	refresh_block('employee_photo');
+	refresh_block('cars');
+
+	if (:emps.has_car == 'E') then
+		show_block('cars', true);
+	else
+		hide_block('cars', true);
+	end if;
+
+}
+
+void cars.row_selected() {
+	refresh_block('car_photo');
+}
+
+void car_photo.row_selected() {
+
+}
+
+/**
+* Developer can define "item modified" trigger function if they want to execute custom command(s) when an item's value modified by user.
+*
+* Name of the item modified trigger function has been formulized as is follows:
+*
+* void BLOCK-NAME + "." + ITEMNAME(char oldValue)
+*
+* Item's new value is set before trigger function is executed. However, developers can access the old value of the modified items by using function parameter "oldValue".
+*
+*/
+void emps.has_car(char oldValue) {
+	if (:emps.has_car == 'E') then
+		show_block('cars', true);
+	else
+		hide_block('cars', true);
+	end if;
+}
+
+
+
+
+/**
+*
+*/
+void deps.show_dep_name() {
+	message(:deps.dep_name);
+}
+
+
+
+void disable_emp_surname() {
+	disable_column('emps.emp_surname');
+}
+
+void enable_emp_surname() {
+	enable_column('emps.emp_surname');
+}
+
+void hide_emp_surname() {
+	hide_column('emps.emp_surname');
+}
+
+void show_emp_surname() {
+	show_column('emps.emp_surname');
+}
+
+
+
+
+bool cars.pre_insert() {
+	return true;
+}
+
+bool cars.pre_delete() {
+	return true;
+}
+
+bool emps.pre_update() {
+	return true;
+}
+
+bool cars.pre_update() {
+	return true;
+}

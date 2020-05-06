@@ -1,0 +1,22 @@
+
+void giris() {
+	:Session.authenticated = false;
+
+	if (:cb_logon.user is null) then
+		message('You must provide a user name');
+		return;
+	end if;
+
+	if (:cb_logon.password is null) then
+		message('You must prove a password');
+		return;
+	end if;
+
+	char connResult = create_oracle_connection('default', '', :cb_logon.tnsname, :cb_logon.user, :cb_logon.password);
+	if (connResult != '') then
+		message('Error occured', connResult, 'error');
+		return;
+	end if;
+
+	show_page('default.frmx');
+}

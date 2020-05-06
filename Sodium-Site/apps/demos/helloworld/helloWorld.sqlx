@@ -1,0 +1,15 @@
+
+void page.load() {
+    message('Page loaded');
+}
+
+void cbDemo.say_hello_world() {
+    message('First Application', 'Hello World', 'info');
+    message('First Application', 'Hello World', 'notice');
+    message('First Application', 'Hello World', 'success');
+    message('First Application', 'Hello World', 'error');
+}
+
+void cbDemo.say_something() {
+    message('Say', :cbDemo.something, 'error');
+}

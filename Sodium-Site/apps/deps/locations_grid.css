@@ -1,0 +1,48 @@
+﻿
+.wrapper {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 1fr;
+  grid-template-areas: 
+      "controlblock"
+      "main";
+}
+
+.controlblock {
+  grid-area: controlblock;
+  text-align:center;
+  margin: 15px;
+}
+
+.main {
+  grid-area: main;
+  text-align:center;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content:  space-around;
+  margin-left: 15px;
+  margin-right: 15px;  
+}
+
+.header {
+    grid-area: header;
+  grid-column: 1 / 5;
+  padding: 15px;
+  
+}
+
+.regions {
+  grid-area: regions;
+}
+
+.countries {
+ grid-area: countries;
+}
+
+.provinces {
+ grid-area: provinces;
+}
+
+.counties {
+ grid-area: counties;
+}

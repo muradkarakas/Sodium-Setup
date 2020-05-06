@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+
+<html>
+
+   <head>
+      <title>Select Element Demo</title>
+   </head>
+
+   <body>
+   
+      <datalist id="provinces"></datalist>
+
+      <datalist id="counties"></datalist>
+
+      <controlblock control-block-name="cb1">
+         <select style="width: 100px" name="province_id"
+            datalist-name="provinces">
+         </select>
+      </controlblock>
+      
+      <controlblock control-block-name="cb2">
+         <select style="width: 100px" name="county_id" datalist-name="counties" 
+            lookup-input-block-name="cb1" lookup-input-name="province_id">
+         </select>     
+      </controlblock>
+      
+   </body>
+</html>

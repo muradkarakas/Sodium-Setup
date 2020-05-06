@@ -1,0 +1,241 @@
+html { 
+  background-color: rosybrown !important; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.treeOuterSpan	{
+	padding: 10px 10px; 
+	overflow: auto; 
+	border: 1px #991821 solid;
+	border-radius: 5px;
+}
+
+body {
+	background-color: rosybrown !important; 
+	font-family: verdana;
+	font-size: 0.75rem;
+}
+
+datablock input[type="image"] {
+   padding:1px;
+   border:1px solid #021a40;
+}
+
+datablock table {
+	border-spacing: 2px;
+	border-collapse: separate;
+	text-align: left;
+	width: 100%;
+	margin: 0 auto;
+}
+
+datablock {
+	overflow: hidden;
+}
+
+datablock table td {
+	padding: 3px 10px;
+}
+
+datablock table th, datablock table tr {
+	padding: 3px 10px;
+}
+
+
+datablock table thead tr th, 
+datablock table thead tr td {
+    background: #991821; /* Old browsers */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #991821
+		), color-stop(1, #80141C) );
+	background: -moz-linear-gradient(center top, #991821 5%, #80141C 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#991821',
+		endColorstr='#80141C' );
+	color: #FFFFFF;
+	font-weight: bold;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+
+datablock table thead tr td,
+datablock table tfoot tr td  {
+	text-align: center;
+}
+
+datablock table thead tr {
+	font-weight: bold;
+	height: 35px;	
+}
+datablock table thead tr input {
+	padding: 2px;
+}
+datablock table thead tr select {
+	padding: 2px;
+}
+datablock table thead th:first-child {
+	border: none;
+}
+datablock table thead tr:first-child {
+	border: none;
+}
+
+
+datablock table tbody .alt tr td {
+	background: #E1EEf4;
+	color: #80141C;
+}
+
+datablock table tbody td:first-child {
+	border-left: none;
+}
+
+datablock table tbody tr:last-child td {
+	border-bottom: none;
+}
+
+
+datablock table tbody td {
+	padding: 2px;
+}
+
+datablock table tbody td ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-align: right;
+}
+
+
+
+datablock table input[type="button"], 
+controlblock input[type="button"]  {
+	display: inline;
+	text-decoration: none;
+	display: inline-block;
+	padding: 4px 6px;
+	margin: 1px;
+	color: #FFFFFF;
+
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #991821
+		), color-stop(1, #80141C) );
+	background: -moz-linear-gradient(center top, #991821 5%, #80141C 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#991821',
+		endColorstr='#80141C' );
+	background-color: #991821;
+}
+
+datablock table input[type="button"].active, 
+datablock table input[type="button"]:hover,
+controlblock input[type="button"].active, 
+controlblock input[type="button"]:hover {
+	text-decoration: none;
+	border-color: #80141C;
+	color: #FFFFFF;
+	background: none;
+	background-color: #991821;
+}
+
+datablock.dhtmlx_window_active,div.dhx_modal_cover_dv {
+	position: fixed !important;
+}
+
+
+
+
+
+
+datablock table tbody tr {
+	text-align: center;
+}
+
+datablock table tbody tr td {
+	text-align: center;
+
+}
+
+datablock table thead tr {
+	font-weight: bold;
+	height: 35px;
+}
+
+
+
+datablock table input[type="text"], datablock table input[type="password"], 
+controlblock input[type="text"], controlblock input[type="password"]  {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background-color: transparent;
+	border: solid 1px #991821;
+	border-radius: .4rem;
+	box-shadow: none;
+	box-sizing: inherit;
+	height: 1.5rem;
+	padding: .2rem;
+}
+datablock table select,
+controlblock select   {
+	border: solid 1px #991821;
+	border-radius: .4rem;
+	background-color: transparent;
+	box-shadow: none;
+	box-sizing: inherit;
+	padding: .2rem;
+}
+datablock table select:not([size]),
+controlblock select:not([size])   {
+	height: 1.5rem;
+}
+datablock table textarea {
+	border: solid 1px #991821;
+	border-radius: .4rem;
+	background-color: transparent;
+	box-shadow: none;
+	padding: .2rem;
+	white-space: pre-wrap;
+}
+
+
+
+
+/*********** row coloring **********/
+.current-row-selected-tr {
+	background-color: #F7CDCD !important;
+}
+
+.current-row-selected-item {
+	background-color: #d8edf3 !important;
+}
+
+.row-modified-tr {
+	background-color: #d8edf3 !important;
+}
+
+.row-modified-item {
+	font-style: italic !important;
+	color: red !important;
+}
+
+.item-modified-ok {
+	font-style: italic !important;
+	background-color: #cbe4cf !important;
+	color: red !important;
+}
+
+.row-applied-ok {
+	background-color: #ffff80 !important;
+	color: black !important;
+}
+
+.fail-row {
+	background-color: red !important;
+}
+/*********** row coloring **********/
+
+

@@ -1,0 +1,11 @@
+﻿
+
+
+void cls() {
+	message('test');
+}
+
+void cbnav.closure_1() {
+	cls();
+}
+

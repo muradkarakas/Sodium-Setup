@@ -1,0 +1,88 @@
+
+
+bool page.access() {
+	return :Session.authenticated;
+}
+
+void page.load() {
+	popUsers();
+	popRoles();
+	
+	refresh_block('users');
+	refresh_block('roles');
+	refresh_block('user_roles');
+}
+
+void popUsers() {
+	rsUsers =	select user_name as label, user_name as value
+			from
+				SODIUM_DEMO.users;
+	populate_datalist('usernames', rsUsers);
+}
+
+void popRoles() {	
+	rsRoles = 	select role_name as label, role_name as value
+				from
+					SODIUM_DEMO.roles;
+	
+	populate_datalist('rolenames', rsRoles);
+}
+
+bool users.access() {
+	if (:Session.user == 'admin') then
+		return true;
+	else
+		return false;
+	end if;
+}
+
+void users.post_insert() {
+	popUsers();
+}
+
+void users.post_delete() {
+	popUsers();
+}
+
+void users.post_update() {
+	popUsers();
+}
+
+void roles.post_insert() {
+	popRoles();
+}
+
+void roles.post_delete() {
+	popRoles();
+}
+
+void roles.post_update() {
+	popRoles();
+}
+
+bool users.pre_insert() {
+	if (:users.user_name == 'admin') then
+		message('admin\' isimli kullan�c� eklenemez');
+		return false;
+	else
+		return true;
+	end if;
+}
+
+bool users.pre_delete() {
+	if (:users.user_name == 'admin') then
+		message('admin\' isimli kullan�c� silinemez');
+		return false;
+	else
+		return true;
+	end if;
+}
+
+bool users.pre_update() {
+	if (:users.user_name == 'admin') then
+		message('admin\' isimli kullan�c� de�i�tirilemez');
+		return false;
+	else
+		return true;
+	end if;
+}

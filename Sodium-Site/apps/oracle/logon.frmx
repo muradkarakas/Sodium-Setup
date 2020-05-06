@@ -1,0 +1,69 @@
+﻿<!DOCTYPE HTML SYSTEM "ht-sql.dtd">
+
+<html>
+
+<head>
+    <title>Sodium Logon Page</title>
+</head>
+
+<body>
+    <div style="text-align: center">
+
+        <br/>
+        <br/>
+        <controlblock control-block-name="cb_logon">
+
+            <table style="border: 0px solid; margin: 0 auto">
+                <thead>
+                    <tr>
+                        <td style="text-align: center" colspan="2">
+                            <b>WELCOME</b>
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>User Name:</td>
+                        <td>
+                            <input name="user" type="text" data-type="char" value="SYSTEM" style="width: 150px"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Password:</td>
+                        <td>
+                            <input name="password" type="password" data-type="char" value="1234" style="width: 150px"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Database</td>
+                        <td>
+                            <input name="tnsname" type="text" data-type="char" value="XE"  style="width: 150px"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Theme:
+                        </td>
+                        <td>
+                            <select name="theme-selector" style="width: 150px">
+                                <option value="default">Sodium Default</option>
+                                <option value="ocean_blue">Sodium Blue</option>
+                                <option value="red">Sodium Red</option>
+                            </select>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td style="text-align: center" colspan="2">
+                            <input name="giris" type="button" value="Login"/>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+
+        </controlblock>
+
+    </div>
+
+</body>
+</html>

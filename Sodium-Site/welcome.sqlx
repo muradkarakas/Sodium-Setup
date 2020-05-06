@@ -1,0 +1,52 @@
+
+redis red;
+
+void cb_oracle.logon2oracle() {
+	char connResult;
+	connResult = create_oracle_connection('default', '', :cb_oracle.tnsname, :cb_oracle.user, :cb_oracle.password);
+	if (connResult is null) then
+		show_page('oracle.frmx');
+	else
+		message('Error occured: ' || connResult);
+	end if;
+}
+
+void cb_postgresql.logon2postgresql() {
+    char connResult;
+	connResult = create_postgresql_connection('default', 'localhost', :cb_postgresql.database, :cb_postgresql.user, :cb_postgresql.password);
+    if (connResult is null) then
+        show_page('postgresql.frmx');
+	else
+		message('Error occured: ' || connResult);
+    end if;
+}
+
+void cb_mysql.logon2mysql() {
+    char connResult;
+	connResult = create_mysql_connection('default', 'localhost', :cb_mysql.database, :cb_mysql.user, :cb_mysql.password);
+    if (connResult is null) then
+        show_page('mysql.frmx');
+	else
+		message('Error occured: ' || connResult);
+    end if;
+}
+
+void cb_redis.connect2redis() {
+	
+	/* we do make connection attemmpt here. */
+	red = create_redis_connection('127.0.0.1', '6379');
+
+	/* lets check the connection is successful or not */
+	char err = red.ping();
+	if (err == 'PONG') then
+		/* success */
+		show_page('redis.frmx');
+	else
+		/* failed */
+		message('Error occured: ' || err);
+	end if;
+
+	/* closing connection */
+	close_redis_connection(red);
+
+}

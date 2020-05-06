@@ -1,0 +1,191 @@
+html {
+    padding: 0;
+    margin: 0;    
+}
+
+body {
+	font-family: verdana;
+	font-size: 0.75rem;
+}
+
+.messageSuccess {
+	text-align: center;
+	color: green;
+	background-color: #c2f3c4;
+}
+
+.messageInfo {
+	text-align: center;
+	color: black;
+	background-color: #05caf3;
+}
+
+.messageFailure {
+	text-align: center;
+	color: red;
+	background-color: #c2f3c4;
+}
+
+.treeOuterSpan	{
+	padding: 10px 10px; 
+	overflow: auto; 
+	border: 1px #008080 solid;
+	border-radius: 5px;
+}
+
+datablock input[type=image] {
+  /**  "loading in progress" image */
+  background-image: url('htsql_loading.gif');
+  background-size: cover;                      
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+datablock input[type="image"] {
+   padding:1px;
+   border:1px solid #021a40;
+}
+
+/*********** row coloring **********/
+.current-row-selected-tr {
+	background-color: #ede1de !important;
+}
+
+.current-row-selected-item {
+	background-color: #d8edf3 !important;
+}
+
+.row-modified-tr {
+	background-color: #d8edf3 !important;
+}
+
+.row-modified-item {
+	font-style: italic !important;
+	color: red !important;
+}
+
+.item-modified-ok {
+	font-style: italic !important;
+	background-color: #cbe4cf !important;
+	color: red !important;
+}
+
+.row-applied-ok {
+	background-color: #ffff80 !important;
+	color: black !important;
+}
+
+.fail-row {
+	background-color: red !important;
+}
+/*********** row coloring **********/
+
+datablock table {
+	border-spacing: 2px;
+	border-collapse: separate;
+	text-align: left;
+	width: 100%;
+	margin: 0 auto;
+}
+
+datablock table thead tr td,
+datablock table tfoot tr td  {
+	text-align: center;
+}
+
+datablock table thead tr:last-child  td {
+	border: solid;
+	border-color: #008080;
+	border-width: 1px;
+	padding-right: 5px;
+	padding-left: 5px;	
+	border-radius: 5px;
+}
+
+datablock table thead tr {
+	font-weight: bold;
+	height: 35px;
+	
+}
+
+datablock table tbody tr {
+	text-align: center;
+}
+
+datablock table tbody tr td {
+	text-align: center;
+	padding: 3px;
+}
+
+datablock table thead tr input {
+	padding: 2px;
+}
+datablock table thead tr select {
+	padding: 2px;
+}
+
+datablock table input[type="text"], 
+datablock table input[type="password"], 
+controlblock input[type="text"], 
+controlblock input[type="password"] {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background-color: transparent;
+
+	border-radius: .4rem;
+	box-shadow: none;
+	box-sizing: inherit;
+	height: 1.5rem;
+	padding: .2rem;
+}
+datablock table select,
+controlblock select   {
+	border-radius: .4rem;
+	background-color: transparent;
+	box-shadow: none;
+	box-sizing: inherit;
+	padding: .2rem;
+}
+datablock table select:not([size]),
+controlblock select:not([size])   {
+	height: 1.5rem;
+}
+datablock table textarea {
+	border-radius: .4rem;
+	background-color: transparent;
+	box-shadow: none;
+	padding: .2rem;
+	white-space: pre-wrap;
+}
+
+datablock table input[type="button"],
+controlblock input[type="button"] {
+	margin: 2px 2px;
+	background: #ECECEC;
+	border-radius: 5px;
+	padding: 2px 5px;
+	font-family: arial;
+	font-weight: bold;
+	color: #7f7f7f;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #fff;
+	border: 1px solid #a7a7a7;
+	box-shadow: 0px 2px 1px white inset, 0px -1px 5px white, 0px 2px 5px
+		rgba(0, 0, 0, 0.1), 0px 8px 10px rgba(0, 0, 0, 0.1);
+	-webkit-transition: box-shadow 0.5s;
+}
+
+datablock table input[type="button"]:hover,
+controlblock input[type="button"]:hover {
+	box-shadow: 0px 2px 1px white inset, 0px -2px 20px white, 0px 2px 5px
+		rgba(0, 0, 0, 0.1), 0px 8px 10px rgba(0, 0, 0, 0.1);
+}
+
+datablock table input[type="button"]:active,
+controlblock input[type="button"]:active {
+	box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5) inset, 0px -2px 20px white,
+		0px 1px 5px rgba(0, 0, 0, 0.1), 0px 2px 10px rgba(0, 0, 0, 0.1);
+	background: -webkit-linear-gradient(top, #d1d1d1 0%, #ECECEC 100%);
+}
+

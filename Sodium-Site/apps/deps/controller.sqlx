@@ -1,0 +1,33 @@
+
+void connection_not_found(char connectionName) {
+	/* connection is made in logon.sqlx */
+
+}
+
+void user_session_end(char reason, char client_ip_address, char client_domain, char client_os_user, char user_session_start_time) {
+
+}
+
+void show_all() {
+	show_page('departments.frmx');
+}
+
+void show_deps() {
+	show_page('form_layout.frmx');
+}
+
+void show_tree() {
+    show_page('locations_tree.frmx');
+}
+
+void show_grid() {
+	show_page('locations_grid.frmx');
+}
+
+void show_colors() {
+	show_page('colors.frmx');
+}
+
+void show_users() {
+	show_page('users.frmx');
+}

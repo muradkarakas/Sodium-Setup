@@ -1,0 +1,9 @@
+﻿
+void connection_not_found(char connectionName) {
+	
+	if (connectionName == 'default') then
+		bool connStatus;
+		connStatus = create_oracle_connection('default', '', 'XE', 'htdemo', '1234'); 
+	end if;
+	
+}

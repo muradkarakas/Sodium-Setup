@@ -1,0 +1,25 @@
+﻿
+.wrapper {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 1fr 2fr;
+  grid-template-areas: 
+      "header   header"
+      "deps     deps_details";
+}
+
+.header {
+  grid-area: header;
+  padding: 15px;
+    text-align: center;
+}
+
+.deps {
+  grid-area: deps;
+}
+
+.deps_details {
+  grid-area: deps_details;
+}
+
+

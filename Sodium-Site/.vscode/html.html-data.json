@@ -1,0 +1,133 @@
+{
+    "version": 1.1,
+    "tags": [
+      {
+        "name": "controlblock",
+        "description": "Sodium control block tag",
+        "attributes": [
+          {
+            "name": "control-block-name",
+            "description": "Control block's name"
+          }
+        ],
+        "references": [
+          {
+            "name": "Control block tag",
+            "url": "https://muradkarakas.gitbook.io/sodium_documentation/language-reference/tags/control-block"
+          }
+        ]
+      }, 
+      {
+        "name": "datablock",
+        "description": "Sodium data block tag",
+        "attributes": [
+          {
+            "name": "data-block-name",
+            "description": "data block's name"
+          }, {
+            "name": "key-column-name",
+            "description": "data block's comma seperated primary column names"
+          }, {
+            "name": "data-source-name",
+            "description": "Table/view name in database"
+          }, {
+            "name": "data-schema-name",
+            "description": "Table/view's schema name in database"
+          }, {
+            "name": "connection-name",
+            "description": "Database connection name"
+          }, {
+            "name": "auto-generated-columns",
+            "description": "Table columns is autmatically populated from database or spesified",
+            "values": [
+              {
+                "name": "*",
+                "description": "All table columns are automatically populated from database table"
+              }, {
+                "name": "comma-seperated-column-name?",
+                "description": "Comma seperated column names"
+              }
+            ]
+          }, 
+          {
+            "name": "where-clause",
+            "description": "Sql where clause"
+          }, 
+          {
+            "name": "order-by-clause",
+            "description": "Sql order by clause"
+          }, 
+          {
+            "name": "master-data-block-name",
+            "description": "Master data block name for relational tables"
+          }, 
+          {
+            "name": "join-condition",
+            "description": "Join condition sql clause for relational tables"
+          }, 
+          {
+            "name": "record-count",
+            "description": "Row count which will be shown on web page"
+          }, 
+          {
+            "name": "insert-allowed",
+            "description": "Insert operation is allowed or not on that datablock",
+            "values": [
+              {
+                "name": "yes",
+                "description": "New record creation is allowed"
+              }, {
+                "name": "no",
+                "description": "New record creation is not allowed"
+              }
+            ] 
+          }, 
+          {
+            "name": "update-allowed",
+            "description": "Update operation is allowed or not on that datablock",
+            "values": [
+              {
+                "name": "yes",
+                "description": "Update opration is allowed"
+              }, {
+                "name": "no",
+                "description": "Update opration is not allowed"
+              }
+            ] 
+          }, 
+          {
+            "name": "delete-allowed",
+            "description": "Delete operation is allowed or not on that datablock",
+            "values": [
+              {
+                "name": "yes",
+                "description": "Delete opration is allowed"
+              }, {
+                "name": "no",
+                "description": "Delete opration is not allowed"
+              }
+            ] 
+          }, 
+          {
+            "name": "show-hide-mode",
+            "description": "CSS attribute",
+            "values": [
+              {
+                "name": "display",
+                "description": "in hidden mode:turns off the display and removes the element completely from the document"
+              }, {
+                "name": "visibility",
+                "description": "in hidden mode: hides the element, but it still takes up space in the layout"
+              }
+            ] 
+          }
+        ],
+        "references": [
+          {
+            "name": "Data block tag",
+            "url": "https://muradkarakas.gitbook.io/sodium_documentation/language-reference/tags/data-block"
+          }
+        ]
+      }
+    ]
+  }

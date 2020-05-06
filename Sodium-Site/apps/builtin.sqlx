@@ -1,0 +1,320 @@
+
+
+/**
+ *	sizeof function with string constant
+ */
+void sizeof_test_1() {
+	int a;
+	a = sizeof('sizeof test');
+	if (a == 11) then
+		message('sizeof_test_1 passed');
+	else
+		message('sizeof_test_1 failed');
+	end if;
+}
+
+/**
+ *	sizeof function with number constant
+ */
+void sizeof_test_2() {
+	int a = sizeof(20);
+	/* number constant is stored in double */
+	if (a == 8) then
+		message('sizeof_test_2 passed');
+	else
+		message('sizeof_test_2 failed');
+	end if;
+}
+
+/**
+ *	sizeof function with bool constant
+ */
+void sizeof_test_3() {
+	int t = sizeof(true);
+	int f = sizeof(false);
+	int n = sizeof(null);
+	/* bool constant is stored in int */
+	if (t == 4 and f == 4 and n == 4) then
+		message('sizeof_test_3 passed');
+	else
+		message('sizeof_test_4 failed');
+	end if;
+}
+
+char testvariable;
+
+
+void rollbackcustom() {
+	rollback('default1');
+}
+
+void plsql_test_1() {
+	char depname;
+	depname = 'plsql deneme';
+
+	begin
+		insert into hr.deps (DEP_ID, DEP_NAME)
+		values (htsql_test.nextval, :depname);
+		commit;
+	end;
+
+}
+
+void update_test_1() {
+	char col;
+	col = 'k';
+
+	update hr.deps
+	set
+		dep_name = 'update test'
+	where
+		dep_name like '%'|| :col || '%';
+}
+
+void delete_test_1() {
+	char dep_name;
+	dep_name = 'velican';
+
+	delete
+		hr.deps
+	where
+		dep_name = :dep_name;
+}
+
+void insert_test_1() {
+	char a;
+	a = 'velican';
+
+	insert into hr.deps (DEP_ID, DEP_NAME)
+	values (htsql_test.nextval, :a);
+}
+
+void select_test_2() {
+	char sayac;
+	char depname;
+	depname = 'mebs';
+
+	rs1 = select * from deps where dep_name = :depname;
+
+	sayac = 0;
+
+	while (rs1) loop
+		message(rs1.dep_name);
+		next_record(rs1);
+		sayac = sayac + 1;
+	end loop;
+
+	message('kayýt sayýsý :' || sayac);
+}
+
+void select_test_1() {
+	char sayac;
+
+	rs1 = select * from deps;
+
+	sayac = 0;
+
+	while (rs1) loop
+		message(rs1.dep_name);
+		next_record(rs1);
+		sayac = sayac + 1;
+	end loop;
+
+	message('kayýt sayýsý :' || sayac);
+}
+
+char mix_test_1_3(int sayac) {
+	if (sayac == 3) then
+		return ' velican';
+	end if;
+	return 'problem in 3';
+}
+
+char mix_test_1_2(int sayac) {
+	if (sayac == 3) then
+		return 4;
+	else
+		return ' alican';
+	end if;
+	return 'problem in 2';
+}
+char mix_test_1_1(int sayac) {
+	if (sayac == 1) then
+		return 'çðýü';
+	end if;
+	return 'problem in 1';
+}
+void mix_test_1() {
+	char str;
+	int sayac;
+	sayac = 1;
+	while(sayac <= 5) loop
+		if (sayac == 1) then
+			str = str || mix_test_1_1(sayac);
+		else
+			if (sayac == 2) then
+				str = str || mix_test_1_2(sayac);
+			else
+				if (sayac == 3) then
+					str = str || mix_test_1_3(sayac);
+				end if;
+			end if;
+		end if;
+		sayac = sayac + 1;
+	end loop;
+	message(str || ': ' || instr(str, 'alican'));
+}
+
+
+
+void substr_3() {
+	char msg1;
+	char msg2;
+
+	msg1 = 'ðöçý þiðýü alican';
+	msg2 = 'alican þiðýü velican';
+
+	if (substr(msg1, 6, 5) == substr(msg2, 8, 5) ) then
+		message('substr test 3 passed');
+	else
+		message('substr test 3 failed');
+	end if;
+}
+
+
+void substr_2() {
+	char msg;
+	msg = 'ðöçý substr test 2 passed alican';
+	message( substr(msg, 6, 20) );
+}
+
+void substr_1() {
+	char msg;
+	msg = 'ðöçý substr test 1 passed';
+	message( substr(msg, 6) );
+}
+
+
+void strlen_3() {
+	char length;
+	char utf8;
+	utf8 = 'öçýüð';
+	length = strlen(utf8);
+	if (length == 5) then
+		message('strlen 3 passed. '|| utf8 || ' length is ' || length);
+	else
+		message('strlen 3 failed. '|| utf8 || ' length is ' || length);
+	end if;
+}
+
+void strlen_2() {
+	char len;
+	len = strlen('');
+	if (len == 0) then
+		message('strlen 2 passed. string length is ' || len);
+	else
+		message('strlen 2 failed. string length is ' || len);
+	end if;
+}
+
+void strlen_1() {
+	char length;
+	length = strlen('strlen 1 passed');
+	if (length == 15) then
+		message('strlen 1 passed. string length is ' || length);
+	else
+		message('strlen 1 failed. string length is ' || length);
+	end if;
+}
+
+
+void instr_4() {
+	int pos;
+	pos = instr('öçýüð */?= ÇÐÜÝÖ', 'Ö');
+	if (pos == 16) then
+		message('instr 4 passed found at : ' || pos);
+	else
+		message('instr 4 failed found at : ' || pos);
+	end if;
+}
+
+void instr_3() {
+	char pos;
+	pos = instr('abc öçýüð edf', 'öçýüð');
+	if (pos == 5) then
+		message('instr 3 passed found at : ' || pos);
+	else
+		message('instr 3 failed found at : ' || pos);
+	end if;
+}
+
+void instr_2() {
+	char pos;
+	pos = instr('instr 2 passed', 'YOK');
+	if (pos == 0) then
+		message('instr 2 passed');
+	else
+		message('instr 2 failed found at : ' || pos);
+	end if;
+}
+
+
+void instr_1() {
+	char pos;
+	pos = instr('instr 1 passed', 'passed');
+	if (pos == 9) then
+		message('instr 1 passed. found at : ' || pos);
+	else
+		message('instr 1 failed. found at : ' || pos);
+	end if;
+}
+
+
+
+void replace_5() {
+	char str;
+	str = 'öçýüð';
+	str = replace( replace( replace(str, 'ð', 'passed'), 'ýü', ' 5 '), 'öç', 'replace');
+	message(str);
+}
+
+void replace_4() {
+	char str;
+	str = 'nested x  y  z';
+	str = replace( replace( replace(str, 'z', 'passed'), 'y', ' 4 '), 'x', 'replace');
+	message(str);
+}
+
+
+char replace_3_1(char param1) {
+	return replace(param1, 'xx', '3');
+}
+void replace_3() {
+
+	message( replace_3_1('replace xx passed') );
+
+}
+
+
+void replace_2() {
+	char str;
+	str = 'ab cd ef';
+	str = replace(str, str, 'replace') || replace(str, str, ' 2 ') || replace(str, str, 'passed');
+	message(str);
+}
+
+
+
+void replace_1() {
+	char str;
+	str = replace('ab cd ef', 'ab', 'replace');
+	str = replace(str, 'cd', ' 1 ');
+	str = replace(str, 'ef', 'passed');
+	message(str);
+}
+
+void page_load() {
+
+}
+
+

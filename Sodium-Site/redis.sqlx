@@ -1,0 +1,71 @@
+﻿/*  REDIS server test and demo page code behind file */
+
+/*  Defining a variable whose type is "redis"     */
+redis red;
+
+void page.load() {
+	/* Sending ping command in page loading phase */
+	char msg = red.ping();
+	message(msg);
+}
+
+void  cb_redis.closeConnection() {
+	/* closing redis connection */
+	close_redis_connection(red);
+}
+
+void  cb_redis.openConnection() {
+	/* Instead of using "connection_not_found" trigger, creating a new redis connection is possible. If you do so, "connection_not_found" trigger will not be fired. */
+	red = create_redis_connection('127.0.0.1', '6379');
+}
+
+void cb_redis.setKey() {
+	char msg = red.set(:cb_redis.keyName, :cb_redis.setKeyValue);
+	message(msg);
+}
+
+void cb_redis.getKey() {
+	char msg = red.get(:cb_redis.keyName);
+	
+	:cb_redis.keyValue = msg;
+}
+
+void cb_redis.deleteKey() {
+	char msg = red.del(:cb_redis.keyName);
+	message(msg);
+}
+
+void cb_redis.pingTest() {
+	char msg = red.ping();
+	message(msg);
+}
+
+void cb_redis.incrKey() {
+	char msg = red.incr(:cb_redis.keyName);
+	:cb_redis.keyValue = msg;
+}
+
+void cb_redis.decrKey() {
+	char msg = red.decr(:cb_redis.keyName);
+	:cb_redis.keyValue = msg;
+}
+
+void cb_redis.incrByKey() {
+	char msg = red.incrBy(:cb_redis.keyName, :cb_redis.incrBy);
+	:cb_redis.keyValue = msg;
+}
+
+void cb_redis.decrByKey() {
+	char msg = red.decrBy(:cb_redis.keyName, :cb_redis.decrBy);
+	:cb_redis.keyValue = msg;
+}
+
+void cb_redis.appendKey() {
+	char msg = red.append(:cb_redis.keyName, :cb_redis.appendKeyValue);
+	:cb_redis.keyValue = msg || ' characters';
+}
+
+void cb_redis.strlen() {
+	char msg = red.strlen(:cb_redis.keyName);
+	:cb_redis.keyValue = msg || ' characters';
+}

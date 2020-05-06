@@ -1,0 +1,183 @@
+﻿<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Redis Connection Test Result</title>    
+    <style type="text/css">
+        .auto-style1 {
+            height: 19px;
+        }
+        .auto-style2 {
+            width: 200px;
+            height: 19px;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="text-align: center">
+			<br/>
+			<b>REDIS RELATED BUILT-IN FUNCTIONS TEST PAGE</b><br />
+            <controlblock control-block-name="cb_redis">
+                
+            <br />
+            <table align="center" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td style="text-align: center; font-weight: bold;" colspan="4">
+                        <hr /></td>
+                </tr>
+                <tr>
+                    <td style="width: 300px; text-align: center; font-weight: bold;">KEY NAME</td>
+                    <td style="width: 200px; text-align: center; font-weight: bold;">INPUT</td>
+                    <td style="width: 200px; text-align: center; font-weight: bold;">ACTION</td>
+                    <td style="width: 200px; text-align: center; font-weight: bold;">OUTPUT</td>
+                </tr>
+                <tr>
+                    <td class="auto-style1" style="text-align: center;" colspan="4">
+                        <hr /></td>
+                </tr>
+                <tr>
+                    <td class="auto-style1" style="text-align: center;">
+                        X</td>
+                    <td class="auto-style1" style="text-align: center;">
+                        X</td>
+                    <td class="auto-style1" style="text-align: center;">
+                <input name="openConnection" type="button" value="Open Redis Connection" style="width: 200px" /></td>
+                    <td class="auto-style1" style="text-align: center;">
+                        X</td>
+                </tr>
+                <tr>
+                    <td class="auto-style1" style="text-align: center;" colspan="4">
+                        <hr /></td>
+                </tr>
+                <tr>
+                    <td class="auto-style1" style="text-align: center;">
+                        X</td>
+                    <td class="auto-style1" style="text-align: center;">
+                        X</td>
+                    <td class="auto-style1" style="text-align: center;">
+
+
+            <input name="closeConnection" type="button" value="Close Redis Connection" style="width: 200px" /></td>
+                    <td class="auto-style1" style="text-align: center;">
+                        X</td>
+                </tr>
+                <tr>
+                    <td class="auto-style1" style="text-align: center;" colspan="4">
+                        <hr /></td>
+                </tr>
+                <tr>
+                    <td class="auto-style1" style="text-align: center;">
+                        X</td>
+                    <td class="auto-style1" style="text-align: center;">
+                        X</td>
+                    <td class="auto-style1" style="text-align: center;">
+            <input name="pingTest" type="button" value="Ping Redis Server" style="width: 200px" /></td>
+                    <td class="auto-style1" style="text-align: center;">
+                        X</td>
+                </tr>
+                <tr>
+                    <td class="auto-style1" style="text-align: center;" colspan="4">
+                        <hr /></td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;" rowspan="17">
+                        <input name="keyName" type="text"/></td>
+                    <td style="width: 200px; text-align: center;"><input name="setKeyValue" type="text"/></td>
+                    <td style="width: 200px; text-align: center;">
+                        <input name="setKey" type="button" value="Set Key Value" style="width: 200px"/></td>
+                    <td style="width: 200px; text-align: center;">X</td>
+                </tr>
+                <tr>
+                    <td class="auto-style1" style="text-align: center;" colspan="3">
+                        <hr /></td>
+                </tr>
+                <tr>
+                    <td class="auto-style1" style="text-align: center;">
+                        X</td>
+                    <td class="auto-style1" style="text-align: center;">
+                        <input name="getKey" type="button" value="Get Key Value" style="width: 200px"/></td>
+                    <td style="text-align: center;" rowspan="13">
+                        <input name="keyValue" type="text" size="20"/></td>
+                </tr>
+                <tr>
+                    <td class="auto-style1" style="text-align: center;" colspan="2">
+                        <hr /></td>
+                </tr>
+                <tr>
+                    <td style="width: 200px; text-align: center;"><input name="appendKeyValue" type="text"/></td>
+                    <td style="width: 200px; text-align: center;">
+                        <input name="appendKey" type="button" value="Append Value" style="width: 200px"/></td>
+                </tr>
+                <tr>
+                    <td class="auto-style1" style="text-align: center;" colspan="2">
+                        <hr /></td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;" class="auto-style2">X</td>
+                    <td style="text-align: center;" class="auto-style2">
+                        <input name="incrKey" type="button" value="Incr" style="width: 200px"/></td>
+                </tr>
+                <tr>
+                    <td class="auto-style1" style="text-align: center;" colspan="2">
+                        <hr /></td>
+                </tr>
+                <tr>
+                    <td class="auto-style1" style="text-align: center;">
+                        <input name="incrBy" type="text"/></td>
+                    <td class="auto-style1" style="text-align: center;">
+                        <input name="incrByKey" type="button" value="IncrBy" style="width: 200px"/></td>
+                </tr>
+                <tr>
+                    <td class="auto-style1" style="text-align: center;" colspan="2">
+                        <hr /></td>
+                </tr>
+                <tr>
+                    <td style="width: 200px; text-align: center;">X</td>
+                    <td style="width: 200px; text-align: center;">
+                        <input name="decrKey" type="button" value="Decr" style="width: 200px"/></td>
+                </tr>
+                <tr>
+                    <td class="auto-style1" style="text-align: center;" colspan="2">
+                        <hr /></td>
+                </tr>
+                <tr>
+                    <td class="auto-style1" style="text-align: center;">
+                        <input name="decrBy" type="text"/></td>
+                    <td class="auto-style1" style="text-align: center;">
+                        <input name="decrByKey" type="button" value="DecrBy" style="width: 200px"/></td>
+                </tr>
+                <tr>
+                    <td class="auto-style1" style="text-align: center;" colspan="2">
+                        <hr /></td>
+                </tr>
+                <tr>
+                    <td class="auto-style1" style="text-align: center;">
+                        X</td>
+                    <td class="auto-style1" style="text-align: center;">
+                        <input name="strlen" type="button" value="Strlen" style="width: 200px"/></td>
+                </tr>
+                <tr>
+                    <td class="auto-style1" style="text-align: center;" colspan="3">
+                        <hr /></td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;" class="auto-style2">X</td>
+                    <td style="text-align: center;" class="auto-style2">
+                        <input name="deleteKey" type="button" value="Delete Key" style="width: 200px"/></td>
+                    <td style="text-align: center;" class="auto-style2">X</td>
+                </tr>
+                <tr>
+                    <td class="auto-style1" style="text-align: center;" colspan="4">
+                        <hr /></td>
+                </tr>
+                </table>
+
+            <input name="kill-session" type="button" value="Log Out" redirect-url="/Sodium-Site/welcome.frmx" style="width: 200px"/>
+
+            </controlblock>
+    </div>
+
+</body>
+</html>

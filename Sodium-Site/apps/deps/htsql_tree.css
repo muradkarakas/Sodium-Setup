@@ -1,0 +1,9 @@
+.bg-file {
+    width: 32px; height: 32px;
+    background: url('css_sprites.png') -10px -10px;
+}
+
+.bg-folder {
+    width: 32px; height: 32px;
+    background: url('css_sprites.png') -62px -10px;
+}

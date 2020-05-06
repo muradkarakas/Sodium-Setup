@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>HT/SQL SHOWCASE (FORM LAYOUT)</title>
+</head>
+
+<body>
+    <datalist id="provinces"></datalist>
+    <datalist id="counties"></datalist>
+
+    <div class="wrapper">
+
+        <div class="header">
+            <controlblock control-block-name="controlblock">
+			    <input name="show_all" type="button" value="All in one" />
+			    <input name="show_deps" type="button" value="Departments" />
+			    <input name="show_grid" type="button" value="Locations (Grid View)" />
+                <input name="show_tree" type="button" value="Locations (Tree View)" />
+			    <input name="show_colors" type="button" value="Colors" />
+			    <input name="show_users" type="button" value="Users" />
+			    <br />
+			    <br />
+			    <input name="commit" type="button" value="Commit" />
+			    <input name="rollback" type="button" value="Rollback" />
+			    |-|
+			    <input name="create-record" type="button" value=" + " />
+			    <input name="delete-record" type="button" value=" - " />
+			    |-|
+			    <input name="first-page" type="button" value="<<" />
+			    <input name="prev-page" type="button" value=" < " />
+			    <input name="next-page" type="button" value=" > " />
+			    <input name="last-page" type="button" value=" >> " />
+			    |-|
+			    <input name="enter-query" type="button" value="Enter Query" />
+			    <input name="execute-query" type="button" value="Execute Query" />
+			    <input name="cancel-query" type="button" value="Cancel Query" />
+			    |-|
+			    <input name="kill-session" type="button" value="Log Out" redirect-url="/Sodium-Site/apps/deps/goodbye.html" />
+		    </controlblock>
+        </div>
+
+        <div class="deps">
+            <datablock data-block-name="deps" data-schema-name="SODIUM_DEMO"
+                data-source-name="deps" order-by-clause="dep_id" key-column-name="dep_id"
+                record-count="10">
+
+                <table>
+                    <thead>
+                        <tr>
+                            <td>DEP ID</td>
+                            <td>DEP NAME</td>
+                            <td>OPS</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <input name="dep_id" data-type="number" column-name="dep_id"
+                                    type="text" size="3" sequence-schema-name="SODIUM_DEMO" sequence-name="htsql" />
+                            </td>
+                            <td>
+                                <input name="dep_name" data-type="char" column-name="dep_name"
+                                    type="text" />
+                            </td>
+                            <td>
+                                <input name="show_dep_name" type="button" value="Show Dep Name" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </datablock>
+        </div>
+
+        <div class="deps_details">
+            <datablock data-block-name="deps_details" key-column-name="dep_id"
+                data-schema-name="SODIUM_DEMO" data-source-name="deps_details"
+                record-count="1" master-data-block-name="deps">
+
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>
+
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <td colspan="2">ADDITIONAL INFORMATION
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td style="vertical-align: top">
+                                                <table>
+
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>DEPARTMAN ID
+                                                            </td>
+                                                            <td>
+                                                                <input name="dep_id" data-type="number" style="width: 100px"
+                                                                    column-name="dep_id" master-item-name="dep_id"
+                                                                    type="text" />
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>PROVINCE
+                                                            </td>
+                                                            <td>
+                                                                <select style="width: 100px" name="province_id"
+                                                                    column-name="province_id" data-type="number"
+                                                                    datalist-name="provinces">
+                                                                </select>
+                                                            </td>
+                                                            <td>COUNTY
+                                                            </td>
+                                                            <td>
+                                                                <select style="width: 100px" name="county_id"
+                                                                    column-name="county_id" data-type="number"
+                                                                    datalist-name="counties" lookup-input-name="province_id">
+                                                                </select>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>FAX NUMBER
+                                                            </td>
+                                                            <td>
+                                                                <input name="FAX_NUMBER" style="width: 100px"
+                                                                    data-type="char" column-name="FAX_NUMBER" type="text" />
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>ADRES
+                                                            </td>
+                                                            <td colspan="4">
+                                                                <textarea name="ADDRESS" style="width: 280px"
+                                                                    rows="10" data-type="char" column-name="ADDRESS">
+																				</textarea>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                            <td>
+                                                <input name="dep_logo" type="image" column-name="dep_logo"
+                                                    height="300" width="450" />
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </datablock>
+        </div>
+    </div>
+
+</body>
+</html>
+

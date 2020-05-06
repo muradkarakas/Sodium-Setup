@@ -1,0 +1,1087 @@
+char testvariable;
+
+void page_load() {
+
+}
+
+char if_test_18_1(char param1, int param2) {
+	char passed = 'passed';
+	if (param2 == 18) then
+		return param1 || ' ' || param2 || ' ' || passed; 
+	else
+		return 'test 18 not passed';
+	end if;
+}
+
+void if_test_18() {
+	char param1 = 'test'; 
+	message(if_test_18_1(param1, 18));
+}
+
+/**
+ * 	if deyim testleri
+ */
+void if_test_2n_1() {
+
+}
+void if_test_2n() {
+	if (if_test_2n_1()) then
+		message('');
+	end if;
+}
+
+void if_test_1n() {
+	if (yok()) then
+		message('failed');
+	end if;
+}
+
+bool if_test_14_2() {
+	return false;
+}
+bool if_test_14_1() {
+	return true;
+}
+void if_test_14() {
+	char sonuc;
+
+	if (if_test_14_1()) then
+		sonuc = sonuc || 'if test ';
+	else
+		sonuc = sonuc || 'failed ';
+	end if;
+
+	if (if_test_14_2() == false) then
+		sonuc = sonuc || '14 passed ';
+	else
+		sonuc = sonuc || 'failed ';
+	end if;
+
+	message(sonuc);
+}
+
+/**
+ * 	'is null' ve 'is not null' testi
+ */
+void if_test_13() {
+	char sonuc;
+	char test = '';
+
+	if (sonuc is null and test is not null) then
+		message('\'is null\' test 1 passed');
+	else
+		message('\'is null\' test 1 failed');
+	end if;
+
+	sonuc = '';
+	test  = null;
+	if (sonuc is not null and test is null) then
+		message('\'is not null\' test 2 passed');
+	else
+		message('\'is not null\' test 2 failed');
+	end if;
+
+	sonuc = null;
+	test  = null;
+
+	char toplam = test || sonuc;
+	if (toplam is not null) then
+		message('\'is not null\' test 3 failed');
+	else
+		message('\'is not null\' test 3 passed');
+	end if;
+}
+
+void if_test_12() {
+	char sonuc;
+
+	if ( 1 == 1 and (2 == 1 or 1 == 1) ) then
+		sonuc = sonuc || 'if ';
+	else
+		sonuc = sonuc || 'failed ';
+	end if;
+
+	if ( 1 == 2 or (2 == 1 or 1 == 1) ) then
+		sonuc = sonuc || 'test ';
+	else
+		sonuc = sonuc || 'failed ';
+	end if;
+
+	if ( 1 == 2 or (2 == 1 or 2 == 1) ) then
+		sonuc = sonuc || 'failed ';
+	else
+		sonuc = sonuc || '12 ';
+	end if;
+
+	if ( 1 == 2 or (1 == 1 or 2 == 2) and 2 == 3) then
+		sonuc = sonuc || 'failed ';
+	else
+		sonuc = sonuc || 'passed ';
+	end if;
+
+	message(sonuc);
+}
+
+
+void if_test_11() {
+	char sonuc;
+
+	if (true) then
+		sonuc = sonuc || 'if ';
+	else
+		sonuc = sonuc || 'failed';
+	end if;
+
+	if (false) then
+		sonuc = sonuc || 'failed';
+	else
+		sonuc = sonuc || 'test ';
+	end if;
+
+	if (true and false) then
+		sonuc = sonuc || 'failed ';
+	else
+		sonuc = sonuc || '11 ';
+	end if;
+
+	if (false or true) then
+		sonuc = sonuc || 'passed';
+	else
+		sonuc = sonuc || 'failed';
+	end if;
+
+	message(sonuc);
+}
+
+void if_test_9() {
+	char sonuc;
+
+	if (1 < 1 or 2 < 3) then
+		sonuc = sonuc || 'if ';
+	else
+		sonuc = sonuc || 'failed';
+	end if;
+	if (2 > 2 or 3 > 2) then
+		sonuc = sonuc || 'test ';
+	else
+		sonuc = sonuc || 'failed';
+	end if;
+	if (2 <= 1 or 3 >= 3) then
+		sonuc = sonuc || '9 ';
+	else
+		sonuc = sonuc || 'failed';
+	end if;
+	if (1 <> 1 or 3 <> 4) then
+		sonuc = sonuc || 'passed ';
+	else
+		sonuc = sonuc || 'failed';
+	end if;
+
+	message(sonuc);
+}
+
+void if_test_8() {
+	char sonuc;
+
+	if (1 < 2 and 2 < 3) then
+		sonuc = sonuc || 'if ';
+	end if;
+	if (2 > 1 and 3 > 2) then
+		sonuc = sonuc || 'test ';
+	end if;
+	if (1 <= 1 and 3 >= 3) then
+		sonuc = sonuc || '8 ';
+	end if;
+	if (1 <> 2 and 3 <> 4) then
+		sonuc = sonuc || 'passed ';
+	end if;
+
+	message(sonuc);
+}
+
+void if_test_7() {
+	char sonuc;
+
+	if (1 < 2) then
+		sonuc = sonuc || 'if ';
+	end if;
+		if (1 > 2) then
+			sonuc = sonuc || 'failed ';
+		end if;
+	if (10 > 1) then
+		sonuc = sonuc || 'test ';
+	end if;
+		if (10 < 1) then
+			sonuc = sonuc || 'failed ';
+		end if;
+	if (10 >= 10) then
+		sonuc = sonuc || '7 ';
+	end if;
+		if (1 >= 10) then
+			sonuc = sonuc || 'failed ';
+		end if;
+	if (1 <= 10) then
+		sonuc = sonuc || 'pas';
+	end if;
+		if (100 <= 10) then
+			sonuc = sonuc || 'failed';
+		end if;
+	if (10 <= 10) then
+		sonuc = sonuc || 'sed';
+	end if;
+
+	message(sonuc);
+}
+
+char if_test_6_1() {
+	return 'if';
+}
+char if_test_6_2() {
+	return 'test';
+}
+char if_test_6_3() {
+	return '6';
+}
+char if_test_6_4() {
+	return 'passed';
+}
+void if_test_6() {
+
+	if (if_test_6_1() == 'if') then
+
+		if (if_test_6_2() == 'test') then
+
+			if (if_test_6_3() == '6') then
+
+				if (if_test_6_4() == 'passed') then
+					message('if test 6 passed');
+				else
+					message('if test 6 failed - 4');
+				end if;
+
+			else
+				message('if test 6 failed - 3');
+			end if;
+
+		else
+			message('if test 6 failed - 2');
+		end if;
+
+	else
+		message('if test 6 failed - 1');
+	end if;
+
+}
+
+
+char if_test_5_1() {
+	return 'alican';
+}
+void if_test_5() {
+	if (if_test_5_1() == 'alican' ) then
+		message('if test 5 passed');
+	else
+		message('if test 5 failed');
+	end if;
+}
+
+void if_test_4() {
+	char isim;
+	isim = 'ali';
+	if (isim <> 'ali') then
+		message('if test 4 failed');
+	else
+		message('if test 4 passed');
+	end if;
+}
+
+
+
+void if_test_3() {
+	char isim;
+	isim = 'ali';
+	if (isim <> 'ali değil') then
+		message('if test 3 passed');
+	else
+		message('if test 3 failed');
+	end if;
+}
+
+
+void if_test_2() {
+	char isim;
+	isim = 'ali';
+	if (isim == 'ali değil') then
+		message('if test 2 failed');
+	else
+		message('if test 2 passed');
+	end if;
+}
+
+void if_test_1() {
+	char isim;
+	isim = 'ali';
+	if (isim == 'ali') then
+		message('if test 1 passed');
+	else
+		message('if test 1 failed');
+	end if;
+}
+
+
+/**
+ * 	'not like' operator test
+ */
+void if_test_17() {
+	char sonuc;
+	sonuc = 'if test 17 passed';
+
+	if (sonuc not like '%tst%' and sonuc not like '%77%' and sonuc not like '%  %' and sonuc not like '%ff') then
+		message('if_test_17 test passed ');
+	else
+		message('if_test_17 test failed');
+	end if;
+}
+
+
+/**
+ * 	'like' operator test
+ */
+void if_test_16() {
+	char sonuc;
+	sonuc = 'if test 16 passed';
+
+	if (sonuc like '%test%' and sonuc like '%16%' and sonuc like 'if%' and sonuc like '%passed') then
+		message('if_test_16 test passed ');
+	else
+		message('if_test_16 test failed');
+	end if;
+}
+
+
+/**
+ * not (!) operator test
+ */
+void if_test_15() {
+	if ( ! (1 != 1) and ! (1 == 2) ) then
+		message('if_test ');
+	else
+		message('if_test_15 failed');
+	end if;
+
+	if ( ! (1 == 1) and ! (1 != 2) ) then
+		message('if_test_15 failed');
+	else
+		message('15 ');
+	end if;
+
+	if ( ! (false) ) then
+		message('passed ');
+	else
+		message('failed ');
+	end if;
+}
+
+/**
+ * 	'and' ve 'or' operatörlerinin öncelik sırası testi.
+ * 	'and' şartı 'or' şartından önce çalışmalı
+ */
+void if_test_10() {
+	char sonuc;
+
+	if (1 == 2 and 2 == 3 or 4 == 4) then
+		sonuc = sonuc || 'if ';
+	else
+		sonuc = sonuc || 'failed';
+	end if;
+	if (4 == 4 or 1 == 2 and 2 == 3) then
+		sonuc = sonuc || 'test ';
+	else
+		sonuc = sonuc || 'failed';
+	end if;
+	if (10 == 10 and 2 == 2 or 1 == 2 or 1 <> 1) then
+		sonuc = sonuc || '10 ';
+	else
+		sonuc = sonuc || 'failed';
+	end if;
+	if (10 <> 11 and 2 == 2 or 1 == 2) then
+		sonuc = sonuc || 'passed';
+	else
+		sonuc = sonuc || 'failed';
+	end if;
+
+	message(sonuc);
+}
+
+
+/**
+ * 	recursive function call test
+ */
+void function_testi_13() {
+	int sonuc;
+	sonuc = factorial(5);
+
+	if (sonuc == 120) then
+		message('function_testi_13 test passed');
+	else
+		message('function_testi_13 test failed');
+	end if;
+}
+
+/**
+ * 	recursive function call test	
+ */
+int factorial(int x) {
+    if (x == 1) then
+        return 1;
+    else
+        return x * factorial(x - 1);
+    end if;
+}
+
+
+/**
+ * Negation operator test
+ */
+void math_test_9() {
+	int a = -2;
+	int b = -1;
+	int c = a * b;
+	int d = -10 / -2;
+
+	if (a < b and -1 < 1 and math_test_9_1() < 0 and c == 2 and d == 5) then
+		message('math_test_9 passed');
+	else
+		message('math_test_9 failed');
+	end if;
+}
+
+int math_test_9_1() {
+	return -1;
+}
+
+int math_test_8_1() {
+	return 0.1;
+}
+
+void math_test_8() {
+	int a = 1.001,
+		b = 1.00101;
+
+	int c = a / math_test_8_1();
+
+	if (a < b and c == 10.01) then
+		message('math_test_8 passed');
+	else
+		message('math_test_8 failed');
+	end if;
+}
+
+void math_test_7() {
+	if (1.1 > 1.01 and 0.01 > 0.001 and 1.1 < 1.10001) then
+		message('math_test_7 passed');
+	else
+		message('math_test_7 failed');
+	end if;
+}
+
+void math_test_6() {
+	if (1 < 2 and 11 > 1 and 100 > 2) then
+		message('math_test_6 passed');
+	else
+		message('math_test_6 failed');
+	end if;
+}
+
+/**
+ * Modular division test
+ */
+void math_test_4() {
+	int a = 20 % 2;
+	int b = 20 % 3 + 1;
+	int c = ((11 * 2) + 20 + 10 - 5) % 30;
+
+	if (a == 0 and b == 3 and c == 17) then
+		message('math_test_4 passed');
+	else
+		message('math_test_4 failed');
+	end if;
+}
+
+
+void math_test_5() {
+	easterDate(2017);
+}
+void easterDate(int y) {
+    int n = 0;
+    int g = (y % 19) + 1;
+    int c = (y / 100) + 1;
+    int x = ((3 * c) / 4) - 12;
+    int z = (((8 * c) + 5) / 25) - 5;
+    int d = ((5 * y) / 4) - x - 10;
+    int e = ((11 * g) + 20 + z - x) % 30;
+
+    if (((e == 25) and (g > 11)) or (e == 24)) then
+        e = e + 1;
+    end if;
+
+    n = 44 - e;
+
+    if (n < 21) then
+        n = n + 30;
+    end if;
+
+    n = n + 7 - ((d + n) % 7);
+
+    if (n > 31) then
+        message('Easter:' || n-31 || ' April ' || y);
+    else
+        message('Easter: ' || n || ' March ' || y);
+    end if;
+}
+
+
+
+int recursiveFunctionCallCount;
+void function_testi_12_1() {
+	if (recursiveFunctionCallCount < 4) then
+		recursiveFunctionCallCount = recursiveFunctionCallCount + 1;
+		function_testi_12_1();
+	end if;
+}
+
+void function_testi_12() {
+	recursiveFunctionCallCount = 0;
+	function_testi_12_1();
+	if (recursiveFunctionCallCount == 4) then
+		message('function_testi_12 test passed');
+	else
+		message('function_testi_12 test failed');
+	end if;
+}
+
+
+int math_test_3_1() {
+	return 5;
+}
+
+/**
+ *
+ */
+void math_test_3() {
+	int z = 2 * (3 + math_test_3_1());
+	if (z == 16) then
+		message('math test 3 passed');
+	else
+		message('math test 3 failed');
+	end if;
+}
+
+
+/**
+ * Matematiksel işlemlerde operator önceliği testi (parantezli)
+ */
+void math_test_2() {
+	char sonuc;
+	int ret;
+
+	ret = (20 - 5) * 3;
+	if (ret == 45) then
+		sonuc = sonuc || 'math ';
+	else
+		sonuc = sonuc || 'failed ';
+	end if;
+
+	ret = ret * (3 - 1) * 3;
+	if (ret <> 270) then
+		sonuc = sonuc || 'failed ';
+	else
+		sonuc = sonuc || 'test ';
+	end if;
+
+	ret = ret / (15-10);
+	if (ret <> 54) then
+		sonuc = sonuc || 'failed ';
+	else
+		sonuc = sonuc || '2 ';
+	end if;
+
+	ret = (200 - ret) * 2;
+	if (ret == 292) then
+		sonuc = sonuc || 'passed ';
+	else
+		sonuc = sonuc || 'failed ';
+	end if;
+
+	message(sonuc);
+}
+
+/**
+ * Matematiksel işlemlerde operator önceliği testi (parantezsiz)
+ */
+void math_test_1() {
+	char sonuc;
+	int ret;
+
+	ret = 20 - 5 * 3;
+	if (ret == 5) then
+		sonuc = sonuc || 'math ';
+	else
+		sonuc = sonuc || 'failed ';
+	end if;
+
+	ret = ret * 3 - 5 * 3;
+	if (ret <> 0) then
+		sonuc = sonuc || 'failed ';
+	else
+		sonuc = sonuc || 'test ';
+	end if;
+
+	ret = ret + 5 + 15 - 10;
+	if (ret <> 10) then
+		sonuc = sonuc || 'failed ';
+	else
+		sonuc = sonuc || '1 ';
+	end if;
+
+	ret = 200 - ret * 2;
+	if (ret == 180) then
+		sonuc = sonuc || 'passed ';
+	else
+		sonuc = sonuc || 'failed ';
+	end if;
+
+	message(sonuc);
+}
+
+
+void next_test_page() {
+	show_page('test_htsql_builtin.mk');
+}
+
+void session_var_1n() {
+	message( :Session.var1 );
+}
+
+/**
+ * 	Session variable tests
+ */
+void session_var_2() {
+	:Session.var2_1 = 'session ';
+	:Session.var2_2 = 'variable ';
+	:Session.var2_3 = '2 test ';
+	message(:Session.var2_1 || :Session.var2_2 || :Session.var2_3 || ' passed');
+}
+
+void session_var_1() {
+	message(:Session.Id);
+}
+
+/**
+ * 	While Loop tests 
+ */
+int looptest3sayac;
+int while_loop_test_3_1() {
+	looptest3sayac = looptest3sayac + 1;
+	return looptest3sayac;
+}
+void while_loop_test_3() {
+	int sayac;
+	looptest3sayac = 0;
+	message(looptest3sayac);
+	while (while_loop_test_3_1() <= 5) loop
+		message(looptest3sayac);
+	end loop;
+	message(looptest3sayac);
+}
+
+
+int looptest4sayac;
+int while_loop_test_4_1() {
+	looptest4sayac = looptest4sayac + 1;
+	return looptest4sayac;
+}
+void while_loop_test_4() {
+	int sayac;
+	looptest4sayac = 0;
+	message(looptest4sayac);
+	while (while_loop_test_4_1() <= 5 and 1 == 1) loop
+		message(looptest4sayac);
+	end loop;
+	message(looptest4sayac);
+}
+
+
+char while_loop_test_2_1() {
+	int sayac;
+	sayac = 1;
+	while (sayac <= 5) loop
+		message(sayac);
+		if (sayac == 3) then
+			return sayac;
+		end if;
+		sayac = sayac + 1;
+	end loop;
+	return '0';
+}
+void while_loop_test_2() {
+	if (while_loop_test_2_1() == 3) then
+		message('while loop test 2 passed');
+	else
+		message('while loop test 2 failed');
+	end if;
+}
+
+void while_loop_test_1() {
+	int sayac;
+
+	sayac = 1;
+	while (sayac <= 5) loop
+		message(sayac);
+		sayac = sayac + 1;
+	end loop;
+}
+
+/**
+ *   Function call tests
+ */
+void function_testi_3_1() {
+	message('test 3');
+}
+void function_testi_3() {
+	function_testi_3_1();
+	message('passed');
+}
+
+char function_testi_11_2() {
+	return 'passed';
+}
+char function_testi_11_1() {
+	return ' 11 ' || function_testi_11_2();
+}
+void function_testi_11() {
+	message( 'test' || function_testi_11_1() );
+}
+
+char function_testi_10_4(char param1) {
+	if (param1 == '33') then
+		return 'passed';
+	else
+		return 'failed';
+	end if;
+	return 'failed';
+}
+char function_testi_10_3(char param1) {
+	if (param1 == '11') then
+		return 'failed';
+	else
+		return ' 10 ';
+	end if;
+	return 'failed';
+}
+char function_testi_10_2(char param1) {
+	if (param1 == '11') then
+		return 'test';
+	else
+		return 'failed';
+	end if;
+	return 'failed';
+}
+char function_testi_10_1() {
+	char a;
+	a = function_testi_10_2('11') || function_testi_10_3('22') || function_testi_10_4('33');
+	return a;
+}
+void function_testi_10() {
+	message( function_testi_10_1() );
+}
+
+void function_testi_7n_1(char param) {
+
+}
+void function_testi_7n() {
+	function_testi_7n_1();
+}
+
+
+
+void function_testi_6n_1() {
+
+}
+void function_testi_6n() {
+	function_testi_6n_1('alican');
+}
+
+
+
+
+void function_testi_4n_2() {
+
+}
+char function_testi_4n_1() {
+	return function_testi_4n_2();
+}
+void function_testi_4n() {
+	function_testi_4n_1();
+}
+
+
+
+void function_testi_3n_1() {
+	return 'alican';
+}
+void function_testi_3n() {
+	function_testi_3n_1();
+}
+
+
+void function_testi_2n_1() {
+
+}
+void function_testi_2n() {
+	testvariable = function_testi_2n_1();
+}
+
+
+void function_testi_1n_1() {
+
+}
+void function_testi_1n() {
+	message(function_testi_1n_1());
+}
+
+char function_testi_9_1_1() {
+
+	if (testvariable == 'alican değil') then
+		testvariable = 'test 9 failed - 1';
+	else
+		if (testvariable == 'alican') then
+			testvariable = 'test 9 passed';
+		else
+			testvariable = 'test 9 failed - 2';
+		end if;
+	end if;
+
+	return testvariable;
+
+	message('test 9 failed - 3');
+
+	return 'test 9 failed - 4';
+}
+void function_testi_9() {
+	testvariable = 'alican';
+	message( function_testi_9_1_1() );
+}
+
+
+
+char function_testi_8_1_1(char param1) {
+
+	if (param1 == 'velican') then
+		return 'test 8 passed - 1';
+		message('test 8 failed - 1');
+	else
+		return 'test 8 passed - 2';
+		message('test 8 failed - 2');
+	end if;
+
+	return 'test 8 failed - 3';
+
+	message('test 8 failed - 4');
+
+	return 'test 8 failed - 5';
+}
+void function_testi_8() {
+	message( function_testi_8_1_1('velican') );
+	message( function_testi_8_1_1('velican değil') );
+}
+
+
+
+char function_testi_7_1() {
+	if (testvariable == 'ali') then
+		return 'passed';
+	end if;
+	message('failed');
+	return 'failed';
+}
+void function_testi_7() {
+	testvariable = 'ali';
+	message( 'test 7 ' || function_testi_7_1() );
+}
+
+
+
+char function_testi_6_1(char param1, char param2) {
+	return param1 || ' ' || param2;
+}
+void function_testi_6() {
+	testvariable = function_testi_6_1('test 6', 'passed');
+	message( testvariable );
+}
+
+
+
+char function_testi_5_1(char param1, char param2) {
+	return param1 || ' ' || param2;
+}
+void function_testi_5() {
+	message( function_testi_5_1('test 5', 'passed') );
+}
+
+
+char function_testi_4_1(char param) {
+	return param || ' passed';
+}
+void function_testi_4() {
+	message( function_testi_4_1('test 4') );
+}
+
+
+
+
+char function_testi_1_1() {
+	return 'test 1 passed';
+}
+void function_testi_1() {
+	message( function_testi_1_1() );
+}
+
+
+
+char function_testi_2_1() {
+	return 'test 2 passed';
+}
+void function_testi_2() {
+	testvariable = 'test 2 failed';
+	testvariable = function_testi_2_1();
+	message( testvariable );
+}
+
+/**
+ * 	Degiskenlerin değer atanmadan tanımlanması sonrası içeriğinin 'null' olması testi.
+ * 	Değişkenin yaşam döngüsünin herhangi bir aşamasında 'null' değerine eşitlenmesi ve test edilmesi.
+ */
+
+/* null means empty string  */
+void local_var_dec_6() {
+	char sonuc;
+	if (sonuc is null) then
+		message('is null test 1 passed');
+	else
+		message('is null test 1 failed');
+	end if;
+
+	sonuc = '';
+	if (sonuc is not null) then
+		message('is not null test 2 passed');
+	else
+		message('is not null test 2 failed');
+	end if;
+
+	sonuc = null;
+	if (sonuc is not null) then
+		message('is not null test 3 failed');
+	else
+		message('is not null test 3 passed');
+	end if;
+}
+
+
+char local_var_dec_5_1() {
+	return 'local variable test 5 passed';
+}
+void local_var_dec_5() {
+	char str = local_var_dec_5_1();
+	message(str);
+}
+
+
+void local_var_dec_4() {
+	char str1 = 'local ', str2 = 'variable ', str3='test ';
+	int num1=4, num2, num3;
+	date tar1, tar2, tar3;
+
+	char vars = ' passed';
+	int  vari;
+
+	message(str1 || str2 || str3 || num1 || vars);
+}
+
+void local_var_dec_3_1(char param1) {
+	message(param1);
+	param1 = 'param1';
+	message(param1);
+}
+void local_var_dec_3() {
+	char isim;
+	isim = 'isim';
+	local_var_dec_3_1(isim);
+	message(isim);
+}
+
+char local_var_dec_1_1() {
+	return ' passed';
+}
+void local_var_dec_1() {
+	char localvariable;
+	localvariable = 'Local variable declaration - 1' || local_var_dec_1_1();
+	message(localvariable);
+}
+
+void local_var_dec_2() {
+	char var1;
+	char var2;
+
+	var1 = 'Local variable declaration - 2';
+	var2 = ' passed';
+
+	message(var1 || var2);
+}
+
+
+
+
+
+
+void local_var_dec_4n() {
+	char a;
+	char a;
+}
+
+int local_var_dec_3n_1() {
+	return c;
+}
+void local_var_dec_3n() {
+	local_var_dec_3n_1();
+}
+
+void local_var_dec_2n() {
+	message( b );
+}
+
+void local_var_dec_1n() {
+	a = 'alican';
+}
+
+
+
+
+/** 
+ *  Comments tests 
+ */
+void comment_test_2() {
+	message('comment test ');
+	/*
+	 *  message('failed');
+	 */
+	message('2 passed');
+}
+
+void comment_test_1() {
+	message('comment test ');
+	/**
+	 *  message('failed');
+	 */
+	message('1 passed');
+}

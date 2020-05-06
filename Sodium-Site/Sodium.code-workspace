@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"html.customData": [ "./.vscode/html.html-data.json" ],
+  		"css.customData": [ "./.vscode/css.css-data.json" ],
+		"files.associations": {
+			"*.frmx": "html",
+			"*.sqlx": "javascript",
+		  },
+	}
+}

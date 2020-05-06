@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Oracle Database Browser</title>
+	</head>
+
+	<body>
+		<datalist id="schemas"></datalist>
+
+		<datalist id="object_types"></datalist>
+
+		<datalist id="schema_object"></datalist>
+
+		<controlblock control-block-name="cb1">
+			<br/>
+			<table style="width: 90%; margin-left: auto; margin-right: auto;">
+				<tr>
+					<td style="text-align: right;">
+						Schema Names:
+					</td>
+					<td style="text-align: center;">
+						Object Types
+					</td>
+					<td style="text-align: left;">
+						Object Name
+					</td>
+				</tr>
+				<tr>
+					<td style="text-align: right;">
+						<select style="width: 250px" name="schema_name"
+							datalist-name="schemas"></select>
+					</td>
+					<td style="text-align: center;">
+						<select style="width: 125px" name="object_type" value="TABLE"
+									datalist-name="object_types"></select>
+					</td>
+					<td style="text-align: left;">
+						<select style="width: 250px" name="schema_object"
+									datalist-name="schema_object"></select>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="10" style="text-align: center;">
+						<br/>
+						<controlblock control-block-name="cb0">
+						<input name="commit" type="button" value="Commit" />
+						<input name="rollback" type="button" value="Rollback" />
+						|-|
+						<input name="create-record" type="button" value=" + " />
+						<input name="delete-record" type="button" value=" - " />
+						|-|
+						<input name="first-page" type="button" value="&lt;&lt;" />
+						<input name="prev-page" type="button" value=" &lt; " />
+						<input name="next-page" type="button" value=" &gt; " />
+						<input name="last-page" type="button" value=" &gt;&gt; " />
+						|-|
+						<input name="enter-query" type="button" value="Enter Query" />
+						<input name="execute-query" type="button" value="Execute Query" />
+						<input name="cancel-query" type="button" value="Cancel Query" />
+						|-|
+						<input name="kill-session" redirect-url="/site/pages/oracle/logon.frmx" type="button"
+							value="Log Out" />
+					</td>
+				</tr>				
+			</table>
+
+		</controlblock>
+
+		<table style="width: 90%; margin-left: auto; margin-right: auto;">
+			<tr>
+				<td colspan="10">
+					<br/>
+					<datablock data-block-name="table"
+						auto-generated-columns="*" record-count="10">
+					</datablock>
+				</td>
+			</tr>
+		</table>
+	</body>
+
+</html>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,40 @@
+void page.load() {
+
+	rsSchemaOwners = 	select username as label, username as value 
+						from all_users;
+	populate_datalist('schemas', rsSchemaOwners);
+
+	rsObjectTypes  = 	select 'TABLE / VIEWS' as label, 'TABLE' as value
+						from dual;
+	populate_datalist('object_types', rsObjectTypes);
+}
+
+void cb1.schema_name(char oldValue) {
+	rsObjects  = 	select owner as schema_name, object_type, object_name as label, object_name as value
+					from all_objects 
+					where 
+						owner = :cb1.schema_name and
+						object_type = :cb1.object_type;	
+	populate_datalist('schema_object', rsObjects);
+
+	if (:cb1.object_type != 'TABLE' and :cb1.object_type != 'VIEW') then
+		hide_block('table');
+	end if;
+}
+
+void cb1.object_type(char oldValue) {
+	
+}
+
+void cb1.schema_object(char oldValue) {
+
+	if (:cb1.object_type == 'TABLE' or :cb1.object_type == 'VIEW') then
+		set_datablock_property('table', 'data-source-name', :cb1.schema_name, : cb1.schema_object);
+		refresh_block('table');
+		show_block('table');
+	else
+		hide_block('table');
+	end if;
+
+}
+

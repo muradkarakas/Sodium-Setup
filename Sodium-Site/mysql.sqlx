@@ -1,0 +1,35 @@
+
+
+void page.load() {
+	refresh_block('information_schema');	 
+}
+
+bool information_schema.pre_insert() {
+	message('You are not allowed');
+	return false;
+}
+
+bool information_schema.pre_delete() {
+	message('You are not allowed');
+	return false;
+}
+
+bool information_schema.pre_update() {
+	message('You are not allowed');
+	return false;
+}
+
+
+void information_schema.mysql_demo_installation() {
+
+	/* executing db objects creation script */
+	char ret = run_sql_file('mysql_demo_installation.sql');
+
+	if (ret is not null) then
+		message('Error occured: ' || ret);
+	else
+		message('Sodium Demo schema and objects has been created.');
+	end if;
+
+}
+

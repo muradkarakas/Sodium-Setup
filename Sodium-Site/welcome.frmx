@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Welcome</title>
+</head>
+
+<body>
+    <table style="text-align: center; margin-left: auto; margin-right: auto">
+
+        <tr style="text-align: center; height: 30px">
+            <td colspan="8" style="font-size: large">
+                <b>WELCOME</b>
+                <br />
+                <br />
+                If you see that page, it means that Sodium is installed on your system successfully.
+                    <br />
+                    Click the buttons below to test database/redis connectivity.
+                    <br />
+                    (You must have database instances and connection information)
+                <br />
+            </td>
+        </tr>
+        <tr style="text-align: center;">
+            <td colspan="8" style="border: 0px solid blue;">
+                <controlblock control-block-name="cb_theme">
+						    THEME SELECTOR:
+                            <br />
+                            <select name="theme-selector" style="width: 150px">
+                                <option value="default">Sodium Default</option>
+                                <option value="ocean_blue">Sodium Blue</option>
+                                <option value="red">Sodium Red</option>
+                            </select>
+                            <br />
+                            <br />
+                        </controlblock>
+            </td>
+        </tr>
+        <tr>
+            <td style="border: 0px solid blue;">
+                <controlblock control-block-name="cb_oracle">
+                    <table style="border: 0px solid; margin-left: auto; margin-right: auto;">
+                        <thead>
+                            <tr>
+                                <td style="text-align: center"
+                                    colspan="2">
+                                    <b><span style="color: red;">ORACLE CONNECTION TEST</span></b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    &nbsp;
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="text-align: right">Database TNS Name:
+                                </td>
+                                <td>
+                                    <input name="tnsname" type="text"
+                                        data-type="char" value="XE" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: right">Database User Name
+                                </td>
+                                <td>
+                                    <input name="user" type="text"
+                                        data-type="char" value="system" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: right">Database Password:
+                                </td>
+                                <td>
+                                    <input name="password" type="text"
+                                        data-type="char" value="1234" />
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td style="text-align: center"
+                                    colspan="2">
+                                    <input name="logon2oracle"
+                                        type="button" value="Login to Oracle" />
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </controlblock>
+            </td>
+            <td style="width: 25px"></td>
+            <td style="border: 0px solid blue;">
+                <controlblock control-block-name="cb_mysql">
+                    <table style="border: 0px solid; margin-left: auto; margin-right: auto;">
+                        <thead>
+                            <tr>
+                                <td style="text-align: center"
+                                    colspan="2">
+                                    <b><span style="color: red;">MYSQL CONNECTION TEST</span></b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    &nbsp;
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="text-align: right">Database Name:
+                                </td>
+                                <td>
+                                    <input name="database" type="text"
+                                        data-type="char" value="mysql" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: right">Database User Name
+                                </td>
+                                <td>
+                                    <input name="user" type="text"
+                                        data-type="char" value="root" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: right">Database Password:
+                                </td>
+                                <td>
+                                    <input name="password" type="text"
+                                        data-type="char" value="1234" />
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td style="text-align: center"
+                                    colspan="2">
+                                    <input name="logon2mysql"
+                                        type="button" value="Login to Mysql" />
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </controlblock>
+            </td>
+            <td style="width: 25px"></td>
+            <td style="border: 0px solid blue;">
+                <controlblock control-block-name="cb_postgresql">
+                    <table>
+                        <thead>
+                            <tr style="margin-left: auto; margin-right: auto">
+                                <td style="text-align: center" colspan="2">
+                                    <b><span style="color: red;">POSTGRESQL CONNECTION TEST</span></b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    &nbsp;
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="text-align: right">Database:
+                                </td>
+                                <td>
+                                    <input name="database" type="text"
+                                        data-type="char" value="postgres" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: right">Database User Name
+                                </td>
+                                <td>
+                                    <input name="user" type="text"
+                                        data-type="char" value="postgres" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: right">Database Password:
+                                </td>
+                                <td>
+                                    <input name="password" type="text"
+                                        data-type="char" value="1234" />
+                                </td>
+
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td style="text-align: center"
+                                    colspan="2">
+                                    <input name="logon2postgresql"
+                                        type="button" value="Login to PostgreSql" />
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </controlblock>
+            </td>
+
+            <td style="width: 25px"></td>
+            <td style="border: 0px solid blue;">
+                <controlblock control-block-name="cb_redis">
+                    <table>
+                        <thead>
+                            <tr style="margin-left: auto; margin-right: auto">
+                                <td style="text-align: center" colspan="2">
+                                    <b><span style="color: red;">REDIS CONNECTION TEST</span></b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    &nbsp;
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="text-align: right">Server:
+                                </td>
+                                <td>
+                                    <input name="redisServer" type="text"
+                                        data-type="char" value="127.0.0.1" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: right">Port Number
+                                </td>
+                                <td>
+                                    <input name="redisPort" type="text"
+                                        data-type="char" value="6379" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: right">Redis Password:
+                                </td>
+                                <td>
+                                    <input name="redisPassword" type="text"
+                                        data-type="char" value="" />
+                                </td>
+
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td style="text-align: center"
+                                    colspan="2">
+                                    <input name="connect2redis"
+                                        type="button" value="Connect to Redis" />
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </controlblock>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                &nbsp;
+            </td>
+        </tr>
+	    <tr>
+            <td >
+                <controlblock control-block-name="cb_core">
+                    <table style="border: 0px solid; margin-left: auto; margin-right: auto;">
+                        <tbody>
+                            <tr>
+                                <td style="text-align: center">
+                                    <b><a href="/Sodium-Site/apps/core.frmx" style="color: red;">LANGUAGE STATEMENT TESTs</b></a>
+                                </td>
+                            </tr>
+                        </thead>
+                    </table>
+                </controlblock>
+            </td>
+            <td style="width: 25px"></td>
+            <td style="border: 0px solid blue;">
+                <controlblock control-block-name="cb_builtin">
+                    <table style="border: 0px solid; margin-left: auto; margin-right: auto;">
+                        <tbody>
+                            <tr>
+                                <td style="text-align: center">
+                                    <b><a href="/Sodium-Site/apps/builtin.frmx" style="color: red;">LANGUAGE BUILT-IN FUNCTION TESTs</b></a>
+                                </td>
+                            </tr>
+                        </thead>
+                    </table>
+                </controlblock>
+            </td>
+            <td style="width: 25px"></td>
+            <td style="border: 0px solid blue;">
+                <controlblock control-block-name="cb_builtin">
+                    <table style="border: 0px solid; margin-left: auto; margin-right: auto;">
+                        <tbody>
+                            <tr>
+                                <td style="text-align: center">
+                                    <b><a href="/Sodium-Site/apps/debug.frmx" style="color: red;">DEBUGGER TESTs</b></a>
+                                </td>
+                            </tr>
+                        </thead>
+                    </table>
+                </controlblock>
+            </td>
+        </tr>
+	
+        <tr style="text-align: center; height: 30px">
+            <td colspan="8" style="font-size: medium">
+                <br />
+                <b>RELEASE NOTE</b>
+                <br />
+                    This is nightly built version of Sodium. 
+                    <br />
+                    Do not use it on production servers. 
+                     <br />
+                <br />
+                <a href="muradkarakas@gmail.com">For questions and bug reports, click here to send an e-mail</a>
+            </td>
+        </tr>
+    </table>
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+
+void page.load() {	
+	
+	rsProvinces = 	select province_name as label, province_id as value
+					from
+						provinces
+					order by
+					  province_name;
+	populate_datalist('provinces', rsProvinces);
+
+	rsCounties = 	select county_name as label, county_id as value, province_id as province_id
+					from
+					  	counties
+					order by
+					  county_name;
+	populate_datalist('counties', rsCounties);
+}
+

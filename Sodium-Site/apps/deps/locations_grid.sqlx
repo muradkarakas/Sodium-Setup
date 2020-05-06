@@ -1,0 +1,26 @@
+
+
+bool page.access() {
+	return :Session.authenticated;
+}
+
+
+void page.load() {
+	refresh_block('regions');
+}   
+
+void regions.row_selected() {
+	/* escape character example */
+	refresh_block('countries', 'region_id = \'' || :regions.region_id || '\'');
+} 
+
+void countries.row_selected() {
+	/* escape character example */
+	refresh_block('provinces', 'country_id = \'' || :countries.country_id || '\'');
+}
+
+void provinces.row_selected() {
+	/* escape character example */
+	refresh_block('counties', 'province_id = \'' || :provinces.province_id || '\'');
+}
+

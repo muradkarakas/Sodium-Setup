@@ -1,0 +1,184 @@
+﻿<!DOCTYPE HTML SYSTEM "ht-sql.dtd">
+
+<html>
+
+	<head>
+		<title>Sodium Core Test</title>
+	</head>
+
+	<body>
+ 	 								  
+		<controlblock control-block-name="cbnav">
+
+			<table border="1px" style="width: 95%">
+				<tr>
+					<td style="text-align: center">SUCCESS TESTS</td>
+					<td style="text-align: center">FAIL TESTS</td>
+				</tr>
+				
+				<tr>
+					<td>
+						<table>
+							<tr>
+								<td>
+									<input name="if_test_1" type="button" value="If test - 1"></input>if test 1 passed<br/>
+									<input name="if_test_2" type="button" value="If test - 2"></input>if test 2 passed</br/>
+									<input name="if_test_3" type="button" value="If test - 3"></input>if test 3 passed</br/>
+									<input name="if_test_4" type="button" value="If test - 4"></input>if test 4 passed</br/>
+									<input name="if_test_5" type="button" value="If test - 5"></input>if test 5 passed</br/>
+									<input name="if_test_6" type="button" value="If test - 6"></input>if test 6 passed</br/>
+									<input name="if_test_7" type="button" value="If test - 7"></input>if test 7 passed<br/>
+									<input name="if_test_8" type="button" value="If test - 8"></input>if test 8 passed<br/>
+									<input name="if_test_9" type="button" value="If test - 9"></input>if test 9 passed<br/>
+								</td>
+								<td>
+									<input name="if_test_10" type="button" value="If test - 10"></input>if test 10 passed</br/>
+									<input name="if_test_11" type="button" value="If test - 11"></input>if test 11 passed</br/>
+									<input name="if_test_12" type="button" value="If test - 12"></input>if test 12 passed</br/>
+									<input name="if_test_13" type="button" value="If test - 13"></input>'is null' test 1 passed \ 'is not null' test 2 passed \ 'is not null' test 3 passed</br/>
+									<input name="if_test_14" type="button" value="If test - 14"></input>if test 14 passed</br/>
+									<input name="if_test_15" type="button" value="If test - 15"></input>if test \ 15 \ passed</br/>
+									<input name="if_test_16" type="button" value="If test - 16"></input>if test 16 passed</br/>
+									<input name="if_test_17" type="button" value="If test - 17"></input>if test 17 passed</br/>
+									<input name="if_test_18" type="button" value="If test - 18"></input>if test 18 passed</br/>
+								</td>
+							</tr>
+						</table>
+						
+					</td>
+					<td>
+						<input name="if_test_1n" type="button" value="NEGATIVE  If test - 1"></input>Function not found yok\ Function must return a value of bool<br/>
+						<input name="if_test_2n" type="button" value="NEGATIVE  If test - 2"></input>Function must return a value of bool<br/>
+					</td>
+				</tr>
+				
+				<tr>
+					<tr>
+						<td>
+							<table>
+								<tr>
+									<td>
+										<input name="math_test_1" type="button" value="math test 1"></input>math test 1 passed<br/>
+										<input name="math_test_2" type="button" value="math test 2"></input>math test 2 passed<br/>
+										<input name="math_test_3" type="button" value="math test 3"></input>math test 3 passed<br/>
+										<input name="math_test_4" type="button" value="math test 4"></input>math test 4 passed<br/>
+										<input name="math_test_5" type="button" value="math test 5"></input>math test 5 passed<br/>
+									</td>
+									<td>									
+										<input name="math_test_6" type="button" value="math test 6"></input>math test 6 passed<br/>
+										<input name="math_test_7" type="button" value="math test 7"></input>math test 7 passed<br/>
+										<input name="math_test_8" type="button" value="math test 8"></input>math test 8 passed<br/>
+										<input name="math_test_9" type="button" value="math test 9"></input>math test 9 passed<br/>
+									</td>
+								</tr>
+							</table>
+						</td>
+						<td>
+							
+						</td>
+					</tr>
+					
+					<td>
+						<table>
+							<tr>
+								<td>
+									<input name="function_testi_1" type="button" value="Function testi - 1"></input>test 1 passed<br/>
+									<input name="function_testi_2" type="button" value="Function testi - 2"></input>test 2 passed<br/>
+									<input name="function_testi_3" type="button" value="Function testi - 3"></input>test 3 passed<br/>
+									<input name="function_testi_4" type="button" value="Function testi - 4"></input>test 4 passed<br/>
+									<input name="function_testi_5" type="button" value="Function testi - 5"></input>test 5 passed<br/>
+									<input name="function_testi_6" type="button" value="Function testi - 6"></input>test 6 passed<br/>
+								</td>
+								<td>
+									<input name="function_testi_7" type="button" value="Function testi - 7"></input>test 7 passed<br/>
+									<input name="function_testi_9" type="button" value="Function testi - 9"></input>test 9 passed<br/>
+									<input name="function_testi_10" type="button" value="Function testi - 10"></input>test 10 passed<br/>
+									<input name="function_testi_11" type="button" value="Function testi - 11"></input>test 11 passed<br/>
+									<input name="function_testi_12" type="button" value="Function testi - 12"></input>test 12 passed<br/>
+									<input name="function_testi_13" type="button" value="Function testi - 13"></input>test 13 passed<br/>
+								</td>
+							</tr>
+						</table>		
+						<input name="function_testi_8" type="button" value="Function testi - 8"></input>ÖNCE "test 8 passed - 1"  VE SONRA  "test 8 passed - 2"<br/>				
+						
+						
+					</td>
+					<td>
+						<input name="function_testi_1n" type="button" value="NEGATIVE Function testi - 1"></input>Function must return a value \ **empty message box**<br/>
+						<input name="function_testi_2n" type="button" value="NEGATIVE Function testi - 2"></input>Function must return a value<br/>
+						<input name="function_testi_3n" type="button" value="NEGATIVE Function testi - 3"></input>Function declaration does not have a return type: 'function_testi_3n_1'<br/>
+						<input name="function_testi_4n" type="button" value="NEGATIVE Function testi - 4"></input>Function must return a value<br/>
+						<br/>
+						<input name="function_testi_5n" type="button" value="NEGATIVE Function testi - 5"></input>Function not found : 'function_testi_5n'<br/>
+						<input name="function_testi_6n" type="button" value="NEGATIVE Function testi - 6"></input>Parameter count in function call is invalid : 'function_testi_6n_1'<br/>
+						<input name="function_testi_7n" type="button" value="NEGATIVE Function testi - 7"></input>Parameter count in function call is invalid : 'function_testi_7n_1'<br/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input name="local_var_dec_1" type="button" value="Local variable declaration - 1"></input>Local variable declaration - 1 passed<br/>
+						<input name="local_var_dec_2" type="button" value="Local variable declaration - 2"></input>Local variable declaration - 2 passed</br/>
+						<input name="local_var_dec_3" type="button" value="Local variable declaration - 3"></input>isim \ param1 \ isim</br/>
+						<input name="local_var_dec_4" type="button" value="Local variable declaration - 4"></input>local variable test 4 passed</br/>
+						<input name="local_var_dec_5" type="button" value="Local variable declaration - 5"></input>local variable test 5 passed</br/>
+						<input name="local_var_dec_6" type="button" value="Local variable declaration - 6"></input>'is null' test 1 passed \ 'is not null' test 2 passed \ 'is not null' test 3 passed</br/>
+					</td>
+					<td>
+						<input name="local_var_dec_1n" type="button" value="NEGATIVE Local variable declaration - 1"></input>Name not found 'a'<br/>
+						<input name="local_var_dec_2n" type="button" value="NEGATIVE Local variable declaration - 2"></input>Variable not found: 'b'<br/>
+						<input name="local_var_dec_3n" type="button" value="NEGATIVE Local variable declaration - 3"></input>Variable not found: 'c'<br/>
+						<input name="local_var_dec_4n" type="button" value="NEGATIVE Local variable declaration - 4"></input>Name is already in use 'a'<br/>
+					</td>
+				</tr>
+			
+				<tr>
+					<td>
+						<input name="while_loop_test_1" type="button" value="while loop - 1"></input>1 \ 2 \ 3 \ 4 \ 5<br/>
+						<input name="while_loop_test_2" type="button" value="while loop - 2"></input>1 \ 2 \ 3 \ while loop test 2 passed<br/>
+						<input name="while_loop_test_3" type="button" value="while loop - 3"></input>0 \ 1 \ 2 \ 3 \ 4 \ 5 \ 6<br/>
+						<input name="while_loop_test_4" type="button" value="while loop - 4"></input>0 \ 1 \ 2 \ 3 \ 4 \ 5 \ 6<br/>
+					</td>
+					<td>
+
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input name="session_var_1" type="button" value="session variable - 1"></input>**current session id**<br/>
+						<input name="session_var_2" type="button" value="session variable - 2"></input>session variable 2 test passed<br/>
+					</td>
+					<td>
+						<input name="session_var_1n" type="button" value="NEATIVE session variable - 1"></input>Name not found ':Session.var1'<br/>
+					</td>
+				</tr>	
+				
+				<tr>
+					<td>
+						<input name="comment_test_1" type="button" value="comment test 1"></input>comment test 1 \ passed<br/>
+						<input name="comment_test_2" type="button" value="comment test 2"></input>comment test 2 \ passed<br/>
+					</td>
+					<td>
+						
+					</td>
+				</tr>	
+				
+				<tr>
+					<td colspan="2" style="text-align: center">
+						<br/>
+						<input name="next_test_page" type="button" value="Next Test Page"></input>
+						<br/>
+						<br/>
+					</td>
+				</tr>		
+				<tr>
+					<td colspan="2" style="text-align: center">
+						<input name="kill-session" type="button" value="Oturumu Kapat"></input>
+					</td>
+				</tr>		
+			</table>
+			
+		</controlblock>
+
+
+	</body>
+</html>

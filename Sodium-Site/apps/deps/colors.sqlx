@@ -1,0 +1,14 @@
+
+
+bool page.access() {
+	return :Session.authenticated;
+}
+
+void page.load() {
+	refresh_block('colors');
+}
+
+void colors.color_name(char oldValue) {
+
+}
+

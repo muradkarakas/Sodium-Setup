@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>SODIUM SHOWCASE (LOCATIONS GRID VIEW)</title>
+</head>
+
+<body>
+    <div class="wrapper">
+
+        <div class="controlblock">
+            <controlblock control-block-name="controlblock">
+			    <input name="show_all" type="button" value="All in one" />
+			    <input name="show_deps" type="button" value="Departments" />
+			    <input name="show_grid" type="button" value="Locations (Grid View)" />
+                <input name="show_tree" type="button" value="Locations (Tree View)" />
+			    <input name="show_colors" type="button" value="Colors" />
+			    <input name="show_users" type="button" value="Users" />
+			    <br />
+			    <br />
+			    <input name="commit" type="button" value="Commit" />
+			    <input name="rollback" type="button" value="Rollback" />
+			    |-|
+			    <input name="create-record" type="button" value=" + " />
+			    <input name="delete-record" type="button" value=" - " />
+			    |-|
+			    <input name="first-page" type="button" value="<<" />
+			    <input name="prev-page" type="button" value=" < " />
+			    <input name="next-page" type="button" value=" > " />
+			    <input name="last-page" type="button" value=" >> " />
+			    |-|
+			    <input name="enter-query" type="button" value="Enter Query" />
+			    <input name="execute-query" type="button" value="Execute Query" />
+			    <input name="cancel-query" type="button" value="Cancel Query" />
+			    |-|
+			    <input name="kill-session" type="button" value="Log Out" redirect-url="/Sodium-Site/apps/deps/goodbye.html" />
+		    </controlblock>
+        </div>
+
+        <div class="main">
+            <div class="regions">
+                <datablock data-block-name="regions" data-source-name="regions" data-schema-name="SODIUM_DEMO" key-column-name="region_id"
+                    order-by-clause="region_name" record-count="10">
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>REGION ID</td>
+                                <td>REGION NAME</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <input name="region_id" data-type="char" column-name="region_id" style="width: 50px"
+                                        type="text" sequence-schema-name="SODIUM_DEMO" sequence-name="htsql"/>
+                                </td>
+                                <td>
+                                    <input name="region_name" data-type="char" column-name="region_name" style="width: 100px"
+                                        type="text"></input>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </datablock>
+            </div>
+
+            <div class="countries">
+                <datablock data-block-name="countries" data-schema-name="SODIUM_DEMO" data-source-name="countries" master-data-block-name="regions"
+                    key-column-name="country_id" order-by-clause="country_name" record-count="10">
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>COUNTRY ID</td>
+                                <td>COUNTRY NAME</td>
+                                <td>REGION ID</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <input name="country_id" data-type="char" column-name="country_id" style="width: 50px"
+                                        type="text" />
+                                </td>
+                                <td>
+                                    <input name="country_name" data-type="char" column-name="country_name" style="width: 100px"
+                                        type="text"/>
+                                </td>
+                                <td>
+                                    <input name="region_id" data-type="char" column-name="region_id" master-item-name="region_id" style="width: 50px"
+                                        type="text"></input>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </datablock>
+            </div>
+
+            <div class="provinces">
+                <datablock data-block-name="provinces" data-schema-name="SODIUM_DEMO" data-source-name="provinces" master-data-block-name="countries"
+                    key-column-name="province_id" order-by-clause="province_name" record-count="10">
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>PROVINCE ID</td>
+                                <td>PROVINCE NAME</td>
+                                <td>COUNTRY ID</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <input name="province_id" data-type="number" column-name="province_id" style="width: 50px"
+                                        type="text" sequence-schema-name="SODIUM_DEMO" sequence-name="htsql"/>
+                                </td>
+                                <td>
+                                    <input name="province_name" data-type="char" column-name="province_name" style="width: 100px"
+                                        type="text"/>
+                                </td>
+                                <td>
+                                    <input name="country_id" data-type="char" column-name="country_id" master-item-name="country_id" style="width: 50px"
+                                        type="text"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </datablock>
+            </div>
+
+            <div class="counties">
+                <datablock data-block-name="counties" data-schema-name="SODIUM_DEMO" data-source-name="counties"
+                    master-data-block-name="provinces" key-column-name="county_id"
+                    record-count="10" order-by-clause="county_name">
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>COUNTY ID</td>
+                                <td>COUNTY NAME</td>
+                                <td>PROVINCE ID</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <input name="county_id" data-type="number" sequence-schema-name="SODIUM_DEMO" sequence-name="htsql" style="width: 50px"
+                                        column-name="county_id" type="text"/>
+                                </td>
+                                <td>
+                                    <input name="county_name" data-type="char" column-name="county_name" style="width: 100px"
+                                        type="text"/>
+                                </td>
+                                <td>
+                                    <input name="province_id" data-type="number" master-item-name="province_id" style="width: 50px"
+                                        column-name="province_id" type="text"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </datablock>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>User Management</title>
+</head>
+
+<body>
+
+    <datalist id="usernames"></datalist>
+    <datalist id="rolenames"></datalist>
+
+    <div class="wrapper">
+
+        <div class="controlblock">
+            <controlblock control-block-name="controlblock">
+			<input name="show_all" type="button" value="All in one" />
+			<input name="show_deps" type="button" value="Departments" />
+			<input name="show_grid" type="button" value="Locations (Grid View)" />
+            <input name="show_tree" type="button" value="Locations (Tree View)" />
+			<input name="show_colors" type="button" value="Colors" />
+			<input name="show_users" type="button" value="Users" />
+			<br />
+			<br />
+			<input name="commit" type="button" value="Commit" />
+			<input name="rollback" type="button" value="Rollback" />
+			|-|
+			<input name="create-record" type="button" value=" + " />
+			<input name="delete-record" type="button" value=" - " />
+			|-|
+			<input name="first-page" type="button" value="<<" />
+			<input name="prev-page" type="button" value=" < " />
+			<input name="next-page" type="button" value=" > " />
+			<input name="last-page" type="button" value=" >> " />
+			|-|
+			<input name="enter-query" type="button" value="Enter Query" />
+			<input name="execute-query" type="button" value="Execute Query" />
+			<input name="cancel-query" type="button" value="Cancel Query" />
+			|-|
+			<input name="kill-session" type="button" value="Log Out" redirect-url="/Sodium-Site/apps/deps/goodbye.html" />
+		</controlblock>
+        </div>
+
+        <div class="main">
+            <div class="users">
+                <datablock data-block-name="users" data-schema-name="SODIUM_DEMO" data-source-name="users"
+                    where-clause="" order-by-clause="" record-count="8" key-column-name="user_name">
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>USER NAME</td>
+                                <td>PASSWORD</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <input name="user_name" data-type="char" column-name="user_name"
+                                        type="text" />
+                                </td>
+                                <td>
+                                    <input name="password" data-type="char" column-name="password"
+                                        type="password" />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </datablock>
+            </div>
+
+            <div class="roles">
+                <datablock data-block-name="roles" data-schema-name="SODIUM_DEMO" data-source-name="roles"
+                    where-clause="" order-by-clause="" record-count="8" key-column-name="role_name">
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>ROLE NAME</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <input name="role_name" data-type="char" column-name="role_name"
+                                        type="text" />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </datablock>
+            </div>
+
+            <div class="user_roles">
+                <datablock data-block-name="user_roles" data-schema-name="SODIUM_DEMO"
+                    data-source-name="user_roles" where-clause="" order-by-clause="" key-column-name="user_name"
+                    record-count="8">
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>USER NAME</td>
+                                <td>ROLE NAME</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <select name="user_name" column-name="user_name"
+                                        datalist-name="usernames"
+                                        data-type="char">
+                                    </select>
+
+                                </td>
+                                <td>
+                                    <select name="role_name" column-name="role_name"
+                                        datalist-name="rolenames"
+                                        data-type="char">
+                                    </select>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </datablock>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+/*
+	HT/SQL uses a common approach to handle all kind of connection related tasks.	
+	-  Whenever a connection is needed and it does not exist, "connection_not_found" trigger is fired.
+	- "connection_not_found" trigger function must be in "controller.sqlx" file. As a result, HT/SQL developers can easily locate it.	
+	-  Developer must create a new connection by using one of the functions listed below depending on the value passed in function parameter "connectionName";
+	   + create_oracle_connection
+	   + create_postgresql_connection	   
+	   + create_redis_connection	 
+	-  HT/SQL applications can have more than one connection at the same time, so "connection_not_found" trigger is fired for each of them whenever they are needed.
+
+	For more detail, please see HT/SQL manual.
+*/
+
+void connection_not_found(char connectionName) {
+	/* check the parameter value and create a new connection for the requested type */
+	if (connectionName == 'red') then
+		/* for redis connections, paramater name is the name of the variable */
+		red = create_redis_connection('127.0.0.1', '6379');
+	end if;
+}

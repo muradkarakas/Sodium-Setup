@@ -1,0 +1,58 @@
+
+
+void page.load() {
+	refresh_block('dual');	 
+}
+
+bool dual.pre_insert() {
+	message('You are not allowed');
+	return false;
+}
+
+bool dual.pre_delete() {
+	message('You are not allowed');
+	return false;
+}
+
+bool dual.pre_update() {
+	message('You are not allowed');
+	return false;
+}
+
+void dual.oracle_demo_installation() {
+
+	/* executing db objects creation script */
+	char ret = run_sql_file('oracle_demo_installation.sql');
+	if (ret is not null) then
+
+		/* error occured. lets check what the problem is */
+		if (ret like '%01920%') then
+
+			/* oracle error ORA-01920: user already exists. droping... */
+			ret = run_sql_file('oracle_demo_drop_user.sql');
+			
+			if (ret is not null) then
+				/* another error. there may be a connected user. showing database error message */
+				message('Error occured (1): ' || ret);
+			else
+				message('Sodium Demo user is droped.');
+				
+				/* let execute creation script again */
+				ret = run_sql_file('oracle_demo_installation.sql');
+				if (ret is not null) then
+					/* I don't know what happend. */
+					message('Error occured (2): ' || ret);
+				else				
+					message('Sodium Demo schema and objects has been created.'); 
+				end if;
+			end if;
+
+		else
+			/* I don't know what happend. */
+			message('Error occured (3): ' || ret);
+		end if;
+	else
+		message('Sodium Demo schema and objects has been created.');
+	end if;
+}
+

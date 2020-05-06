@@ -1,0 +1,35 @@
+
+
+bool page.access() {
+	return :Session.authenticated;
+}
+
+
+void page.load() {
+	
+	rsProvinces = 	select province_name as label, province_id as value
+					from
+						SODIUM_DEMO.provinces
+					order by
+					  province_name;
+	populate_datalist('provinces', rsProvinces);
+	
+	rsCounties = 	select county_name as label, county_id as value, province_id as province_id
+					from
+						SODIUM_DEMO.counties
+					order by
+					  county_name;
+	populate_datalist('counties', rsCounties);
+	
+	refresh_block('deps');
+}
+
+void deps.row_selected() {
+	if (:deps.dep_id is not null) then
+		refresh_block('deps_details', 'dep_id = ' || :deps.dep_id);
+	end if;
+}
+
+void deps.show_dep_name() {
+	message(:deps.dep_name);
+}

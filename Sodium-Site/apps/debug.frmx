@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<title>Sodium Debug Test Page</title>
+	</head>
+
+	<body>
+		<br/>
+		<br/>
+		<controlblock control-block-name="cb_logon">
+
+			<div >
+
+				<table style="border: 0px solid; margin: 0 auto">
+					<thead>
+						<tr>
+							<td style="text-align: center; font-size: medium;" colspan="2">
+								<b>Debug Test Page</b>
+							</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								<b>Database:</b>
+							</td>
+							<td>
+								<input name="dbType" type="radio" value="oracle" />ORACLE
+                                <br />
+							    <input name="dbType" type="radio" value="postgresql" />POSTGRESQL
+                            </td>
+						</tr>
+                        <tr>
+							<td>
+								<b>User Name:</b>
+							</td>
+							<td>
+								<input name="user" type="text" data-type="char" value="admin" style="width: 150px"/>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<b>Password:</b>
+							</td>
+							<td>
+								<input name="password" type="password" data-type="char" value="1234" style="width: 150px"/>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<b>Theme:</b>
+							</td>
+							<td>
+								<select name="theme-selector" style="width: 150px">
+									<option value="default">Sodium Default</option>
+									<option value="ocean_blue">Sodium Blue</option>
+									<option value="red">Sodium Red</option>
+								</select>
+							</td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td style="text-align: center;" colspan="2">
+								<input name="if_test" type="button" value="If Test" style="width: 100"/>
+								<input name="step_in_test" type="button" value="Step In Test" style="width: 100"/>
+                                <input name="replace_1" type="button" value="replace_1 Test" style="width: 100"/>
+							</td>
+						</tr>
+					</tfoot>
+				</table>
+
+			</div>
+
+		</controlblock>
+
+	</body>
+
+</html>
+

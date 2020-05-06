@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+  
+<html>
+    <head>
+        <title>Hello World</title>
+
+    </head>
+  
+    <body>
+        
+        <br />
+        <br />
+
+        <controlblock control-block-name="cbDemo">
+            <input name="say_hello_world" type="button" value="Say Hello World" style="display: block; margin-left: auto; margin-right: auto; width: 150px;"/>
+            <br/>
+            <input name="something" type="text" style="display: block; margin-left: auto; margin-right: auto; width: 150px;"/>
+            <input name="say_something" type="button" value="Say Something" style="display: block; margin-left: auto; margin-right: auto; width: 150px;"/>
+        </controlblock>
+  
+    </body>
+</html>

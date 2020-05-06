@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Database Connection Test Result (MYSQL)</title>
+</head>
+
+<body>
+    <div style="text-align: center">
+        <br />
+        <b>Database Connection Test Result (MYSQL)</b>
+        <br />
+        <controlblock control-block-name="cb">
+            <input name="commit" type="button" value="Commit" />
+            <input name="rollback" type="button" value="Rollback" />
+            |-|
+            <input name="first-page" type="button" value="<<" />
+            <input name="prev-page" type="button" value=" < " />
+            <input name="next-page" type="button" value=" > " />
+            <input name="last-page" type="button" value=" >> " />
+            |-|
+            <input name="enter-query" type="button" value="Enter Query" />
+            <input name="execute-query" type="button" value="Execute Query" />
+            <input name="cancel-query" type="button" value="Cancel Query" />
+            |-|
+            <input name="kill-session" type="button" value="Oturumu Kapat" redirect-url="/Sodium-Site/welcome.frmx" />
+         </controlblock>
+
+        <br />
+
+        <datablock data-block-name="information_schema" data-schema-name="information_schema" data-source-name="tables" record-count="5" key-column-name="table_name">
+
+            <table>
+                <thead>
+                    <tr>
+                        <td>Schema Name</td>
+                        <td>Schema Owner</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <input name="table_name" data-type="char" column-name="table_name" type="text" />
+                        </td>
+                        <td>
+                            <input name="table_schema" data-type="char" column-name="table_schema" type="text" />
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="2">
+                            <input name="mysql_demo_installation" type="button" value="DROP! and Create Sodium Demo Database Objects" />
+                            <br />
+                            <br />
+                            <input name="kill-session" type="button" value="Show Demo Page" redirect-url="/Sodium-Site/apps/deps/logon.frmx" />
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </datablock>
+        <br />
+        If table contents is shown above, it means that Sodium is successfully installed and is able to access Postgresql database instance.
+         <br />
+        Note: Do not make modification on system tables.
+         
+    </div>
+
+</body>
+</html>

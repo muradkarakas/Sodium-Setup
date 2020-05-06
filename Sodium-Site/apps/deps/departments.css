@@ -1,0 +1,120 @@
+﻿
+.grid {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-areas: 
+      "controlblock controlblock    controlblock"
+      "deps         emps            emp_photo"
+      "deps         cars            car_photo";
+}
+
+.controlblock {
+    grid-area: controlblock;
+    text-align: center;
+}
+
+.deps {
+    grid-area: deps;
+}
+
+.emps {
+    grid-area: emps;
+}
+
+.cars {
+    grid-area: cars;
+}
+
+.emp_photo {
+    grid-area: emp_photo;
+}
+
+.car_photo {
+    grid-area: car_photo;
+}
+
+
+
+
+
+.header {
+  grid-area: header;
+  padding: 15px;
+  text-align: center;
+}
+
+.main {
+  grid-area: main;
+  padding: 15px;
+
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    box-pack: center;
+    justify-content: center;
+
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    box-align: center;  
+    align-items: center;
+}
+
+.maincontent {
+    
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+
+    -webkit-box-orient: horizontal; 
+    -moz-box-orient: horizontal;
+    box-orient: horizontal;
+    flex-direction: row;
+
+    flex-wrap: wrap;
+}
+
+.aside2 {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+
+    -webkit-box-orient: horizontal; 
+    -moz-box-orient: horizontal;
+    box-orient: horizontal;
+    flex-direction: row;
+
+    flex-wrap: wrap;
+}
+
+.footer {
+  grid-area: footer;
+  padding: 15px;
+  text-align: center;
+}
+
+
+.deps {
+
+}
+
+.emps {
+
+}
+
+.emp_photo {
+
+}
+
+.cars {
+
+}
+
+.car_photo {
+
+}
+
+

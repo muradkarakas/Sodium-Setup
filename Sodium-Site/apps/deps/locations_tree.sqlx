@@ -1,0 +1,153 @@
+ 
+
+void page.load() {
+	populate_tree('cbTree.data');
+}
+
+void provinces.post_delete() {
+	refresh_tree_node('cbTree.data', :Session.selectedNodeParentId);
+}
+void provinces.post_insert() {
+	refresh_tree_node('cbTree.data', :Session.selectedNodeId);
+}
+void provinces.post_update() {
+	refresh_tree_node('cbTree.data', :Session.selectedNodeParentId);
+}
+
+void countries.post_delete() {
+	refresh_tree_node('cbTree.data', :Session.selectedNodeParentId);
+}
+void countries.post_insert() {
+	refresh_tree_node('cbTree.data', :Session.selectedNodeId);
+}
+void countries.post_update() {
+	refresh_tree_node('cbTree.data', :Session.selectedNodeParentId);
+}
+
+void counties.post_delete() {
+	refresh_tree_node('cbTree.data', :Session.selectedNodeParentId);
+}
+void counties.post_insert() {
+	refresh_tree_node('cbTree.data', :Session.selectedNodeId);
+}
+void counties.post_update() {
+	refresh_tree_node('cbTree.data', :Session.selectedNodeParentId);
+}
+
+void cbTree.data.tree_node_selected(char node_id, char parent_id, char node_type) {
+	:Session.selectedNodeId = node_id;
+	:Session.selectedNodeParentId = parent_id;
+
+    /* message('node_id : ' || node_id || '. node_type : ' || node_type);  */
+
+    if (node_id == 'no_region') then
+        show_page('locations_grid.frmx');
+    end if;
+
+	hide_block('countries');
+	hide_block('provinces');
+	hide_block('counties');
+	
+	if (node_type == 'R') then
+		refresh_block('countries', 'region_id = :node_id');
+		show_block('countries');
+	end if;
+	
+	if (node_type == 'C') then
+		refresh_block('provinces', 'country_id = :node_id');
+		show_block('provinces');
+	end if;
+
+	if (node_type == 'P') then
+		refresh_block('counties', 'province_id = :node_id');
+		show_block('counties');
+	end if;
+}
+
+char cbTree.data.tree_node_expanded(char node_id, char node_type) {
+	char json;
+	
+	/* message('node_id : ' || node_id || '. node_type : ' || node_type); */
+	
+	if (node_id == '#') then
+		
+		rs =	select 
+					  region_id		as	id,
+					  region_name 	as	text,
+					  '#' 			as	parent,
+					  'R'			as	type,
+					  case (select count(*) from SODIUM_DEMO.countries c where c.region_id = r.region_id)
+					  	when 0 then
+					  		'false' 
+					  	else
+							'true'
+						end 			children
+					from
+						SODIUM_DEMO.regions r;
+        if (rs) then
+            /*  */
+            json = to_json(rs);
+        else
+            json = '[ { "id" : "no_region", "parent" : "#", "text" : "Click here to add new region" } ]';
+        end if;
+	end if;
+		
+	if (node_type == 'R') then		
+		rs =	select 
+				  country_id	as	id,
+				  country_name 	as	text,
+				  cc.region_id	as	parent,
+				  'C'			as	type,
+				  case (select count(*) from SODIUM_DEMO.countries c where c.region_id = cc.region_id)
+				  	when 0 then
+				  		'false' 
+				  	else
+						'true'
+					end 			children
+				  
+				from
+					SODIUM_DEMO.countries cc
+				where
+					cc.region_id = :node_id;
+		json = to_json(rs);
+	end if;
+	
+	if (node_type == 'C') then
+	
+		 rs = select 
+				  PROVINCE_ID	as  id,
+				  PROVINCE_name as	text,
+				  country_id	as	parent,
+				  'P'			as	type,
+				  case (select count(*) from SODIUM_DEMO.counties c where c.province_id = cc.province_id)
+				  	when 0 then
+				  		'false' 
+				  	else
+						'true'
+					end 			children
+				from
+					SODIUM_DEMO.provinces cc
+				where
+					cc.country_id = :node_id;
+	
+		json = to_json(rs);
+	end if;
+	
+	if (node_type == 'P') then
+	
+	     rs = 	select 
+			  	county_id     as	id,
+			  	county_name   as	text,
+			  	province_id   as	parent,
+			  	'false'       as	children
+			from
+				SODIUM_DEMO.counties c
+			where
+			  	c.province_id = :node_id;
+
+		json = to_json(rs);
+	end if;
+	
+	return json;
+}
+

@@ -1,0 +1,112 @@
+int     g1;
+char    g2;
+date    g3;
+bool    g4;
+redis   g5;
+
+void if_test() {
+    int i1;
+    char c1;
+    date d1;
+    bool b1;
+    redis a;
+
+    if (retval() == 'tst') then
+        char tst2 = __LINE__;
+        char tst3 = __LINE__;
+    end if;
+
+    char d16 = __LINE__;
+    char d17 = 'd';
+    char d18 = 'd';
+    if (:cb_logon.dbType is not null) then
+        char d20 = 'd';
+        char d21 = 'd';
+        char d22 = 'd';
+    end if;
+    char d24 = 'd';
+    char d25 = 'd';
+    if (:cb_logon.dbType is not null) then
+        char d27 = 'd';
+        char d28 = 'd';
+        char d29 = 'd';
+    else
+        char d31 = 'd';
+        char d32 = 'd';
+        char d33 = 'd';
+    end if;
+    char d35 = 'd';
+    char d36 = 'd';
+    char d37 = 'd';
+    if (:cb_logon.dbType is null) then
+        char d39 = 'd';
+        char d40 = 'd';
+        char d41 = 'd';
+    end if;
+    char d43 = 'd';
+    char d44 = 'd';
+    if (:cb_logon.dbType is null) then
+        char d46 = 'd';
+        char d47 = 'd';
+        char d48 = 'd';
+    else
+        char d50 = 'd';
+        char d51 = 'd';
+        char d52 = 'd';
+    end if;
+    char d54 = 'd';
+    char d55 = 'd';
+}
+
+char retval() {
+    char test;
+    test = 'tst';
+    return test;
+}
+
+void replace_1() {
+	char str = 'test value';
+	str = replace('ab cd ef', 'ab', 'replace');
+	str = replace(str, 'cd', ' 1 ');
+	str = replace(str, 'ef', 'passed');
+
+	message(str);
+}
+
+void step_in_test() {
+
+    int x;
+	x = sizeof('sizeof test');
+
+    char a = 'a';
+    char b = 'b';
+
+    stepIn_1('alican');
+
+    char c = 'c';
+    char d = 'd';
+
+    if_test();
+
+    char e = 'e';
+    char f = 'f';
+}
+
+void stepIn_1(char name) {
+    char d1 = '11';
+    char d2 = '12';
+    stepIn_2();
+    char d3 = '13';
+    char d4 = '14';
+}
+
+void stepIn_2() {
+    char d1 = '21';
+    char d2 = '22';
+    char d3 = '23';
+    if_test();
+    char d4 = '24';
+    char d5 = '25';
+}
+
+

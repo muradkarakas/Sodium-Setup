@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Sodium Demo</title>
+
+</head>
+
+<body>
+
+    <datalist id="counties"></datalist>
+    <datalist id="provinces"></datalist>
+    <datalist id="colors"></datalist>
+
+    <div class="grid">
+
+        <div class="controlblock">
+            <controlblock control-block-name="controlblock">
+			    <input name="show_all" type="button" value="All in one" />
+			    <input name="show_deps" type="button" value="Departments" />
+			    <input name="show_grid" type="button" value="Locations (Grid View)" />
+                <input name="show_tree" type="button" value="Locations (Tree View)" />
+			    <input name="show_colors" type="button" value="Colors" />
+			    <input name="show_users" type="button" value="Users" />
+			    <br />
+			    <br />
+			    <input name="commit" type="button" value="Commit" />
+			    <input name="rollback" type="button" value="Rollback" />
+			    |-|
+			    <input name="create-record" type="button" value=" + " />
+			    <input name="delete-record" type="button" value=" - " />
+			    |-|
+			    <input name="first-page" type="button" value="<<" />
+			    <input name="prev-page" type="button" value=" < " />
+			    <input name="next-page" type="button" value=" > " />
+			    <input name="last-page" type="button" value=" >> " />
+			    |-|
+			    <input name="enter-query" type="button" value="Enter Query" />
+			    <input name="execute-query" type="button" value="Execute Query" />
+			    <input name="cancel-query" type="button" value="Cancel Query" />
+			    |-|
+			    <input name="kill-session" type="button" value="Log Out" redirect-url="/Sodium-Site/apps/deps/goodbye.html" />
+		    </controlblock>
+        </div>
+
+        <div class="deps">
+            <datablock data-block-name="deps" data-source-name="deps" data-schema-name="SODIUM_DEMO"
+                where-clause="" order-by-clause="dep_id" record-count="11" key-column-name="dep_id">
+
+                <table>
+                    <thead>
+                        <tr>
+                            <td>DEP ID</td>
+                            <td>DEP NAME</td>
+                            <td>EMP.CNT.</td>
+                            <td>LOGO</td>
+                            <td>OPS</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <input name="dep_id" data-type="number" column-name="dep_id"
+                                    type="text" size="3" sequence-schema-name="SODIUM_DEMO" sequence-name="htsql" />
+                            </td>
+                            <td>
+                                <input name="dep_name" data-type="char" column-name="dep_name"
+                                    size="15" type="text" />
+                            </td>
+                            <td>
+                                <input name="employee_count" data-type="char" size="5"
+                                    type="text" />
+                            </td>
+                            <td>
+                                <input name="dep_logo" type="image" height="25"
+                                    width="25" />
+                            </td>
+                            <td>
+                                <input name="show_dep_name" type="button" value="Show" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </datablock>
+        </div>
+
+        <div class="emps">
+            <datablock data-block-name="emps" data-source-name="employees" data-schema-name="SODIUM_DEMO"
+                where-clause="" order-by-clause="emp_id" key-column-name="emp_id"
+                master-data-block-name="deps" record-count="5"
+                join-condition="dep_id = :deps.dep_id">
+
+                <table>
+                    <thead>
+                        <tr>
+                            <td>DEP ID</td>
+                            <td>EMP ID</td>
+                            <td>EMP NAME</td>
+                            <td>EMP SURNAME</td>
+                            <td>IS BOSS?</td>
+                            <td>OWN A CAR?</td>
+                            <td>GENDER</td>
+                            <td>ACTIONS</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <input name="dep_id" data-type="number" column-name="dep_id"
+                                    master-item-name="dep_id" type="text" size="3" />
+                            </td>
+                            <td>
+                                <input name="emp_id" data-type="number" column-name="emp_id"
+                                    type="text" size="3" sequence-schema-name="SODIUM_DEMO" sequence-name="htsql" />
+                            </td>
+                            <td>
+                                <input name="emp_name" data-type="char" column-name="emp_name"
+                                    type="text" />
+                            </td>
+                            <td>
+                                <input name="emp_surname" data-type="char"
+                                    column-name="emp_surname" type="text" />
+                            </td>
+                            <td>
+                                <input type="checkbox" name="is_boss" column-name="emp_is_boss"
+                                    checked-value="E" unchecked-value="H" data-type="char"
+                                    default-value="H" />
+                            </td>
+                            <td>
+                                <input type="checkbox" name="has_car" column-name="has_car"
+                                    checked-value="E" unchecked-value="H" data-type="char"
+                                    default-value="H" />
+                            </td>
+                            <td>
+                                <input type="radio" column-name="gender" data-type="char"
+                                    name="gender" checked-value="male" default-value="" />
+                                Male
+													<input type="radio" column-name="gender" data-type="char"
+                                                        name="gender" checked-value="female" default-value="" />
+                                Female
+                            </td>
+                            <td>
+                                <input name="delete-record" type="button" value="Sil" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </datablock>
+        </div>
+
+        <div class="emp_photo">
+            <datablock data-block-name="employee_photo" data-schema-name="SODIUM_DEMO"
+                data-source-name="employee_photo" master-data-block-name="emps" key-column-name="emp_id"
+                join-condition="emp_id = :emps.emp_id" record-count="1">
+
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <input name="emp_id" data-type="number"
+                                    master-item-name="emp_id" column-name="EMP_ID"
+                                    type="hidden" />
+                                <input name="employee_photo" type="image"
+                                    column-name="EMPLOYEE_PHOTO" height="160" width="280"
+                                    value="" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </datablock>
+        </div>
+
+        <div class="cars">
+            <datablock data-block-name="cars" data-source-name="cars" data-schema-name="SODIUM_DEMO"
+                order-by-clause="car_id" master-data-block-name="emps" key-column-name="car_id"
+                join-condition="emp_id = :emps.emp_id" record-count="5">
+
+                <table>
+                    <thead>
+                        <tr>
+                            <td>EMP ID</td>
+                            <td>CAR ID</td>
+                            <td>MAKE</td>
+                            <td>MODEL</td>
+                            <td>COLOR</td>
+                            <td>CITY</td>
+                            <td>ACTIONS</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <input name="emp_id" data-type="number"
+                                    master-item-name="emp_id" column-name="emp_id" size="3"
+                                    type="text" />
+                            </td>
+                            <td>
+                                <input name="car_id" data-type="number" column-name="car_id"
+                                    size="3" sequence-schema-name="SODIUM_DEMO" sequence-name="htsql" type="text" />
+                            </td>
+                            <td>
+                                <input name="car_make" data-type="char" column-name="car_make"
+                                    type="text" />
+                            </td>
+                            <td>
+                                <input name="car_year" data-type="char" column-name="car_year"
+                                    type="text" />
+                            </td>
+                            <td>
+                                <select name="color_id" column-name="color_id"
+                                    data-type="char" default-value="white" datalist-name="colors">
+                                </select>
+                            </td>
+                            <td>
+                                <select style="width: 100px" name="province_id"
+                                    column-name="province_id" data-type="number"
+                                    datalist-name="provinces">
+                                </select>
+                                <select style="width: 100px" name="county_id"
+                                    column-name="county_id" data-type="number"
+                                    datalist-name="counties"
+                                    lookup-input-name="province_id">
+                                </select>
+                            </td>
+                            <td>
+                                <input name="delete-record" type="button" value="Sil" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </datablock>
+        </div>
+
+        <div class="car_photo">
+            <datablock data-block-name="car_photo" data-schema-name="SODIUM_DEMO"
+                data-source-name="cars" master-data-block-name="cars" key-column-name="car_id"
+                join-condition="car_id = :cars.car_id" record-count="1">
+
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <input name="car_id" data-type="number"
+                                    master-item-name="car_id" column-name="car_id"
+                                    type="hidden" />
+                                <input name="car_photo" type="image" column-name="car_photo"
+                                    height="160" width="280" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </datablock>
+        </div>
+
+    </div>
+
+</body>
+</html>
+

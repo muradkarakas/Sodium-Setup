@@ -1,0 +1,142 @@
+﻿<!DOCTYPE HTML SYSTEM "ht-sql.dtd">
+ 
+<html>
+ 
+	<head>
+		<title>Sodium Builtin-In Functions Test</title>
+	</head>
+
+	<body>
+		
+		<controlblock control-block-name="cbnav">
+			<input name="rollback" type="button" 	value="Rollback"></input>
+			<input name="rollbackcustom" type="button" 	value="Rollback Custom"></input>
+			
+			<table border="1px">
+				<tr>
+					<td style="text-align: center">SUCCESS TESTS</td>
+					<td style="text-align: center">FAIL TESTS</td>
+					<td style="text-align: center">SUCCESS TESTS</td>
+					<td style="text-align: center">FAIL TESTS</td>
+				</tr>
+				<tr>
+					<td>
+						<input name="replace_1" type="button" value="replace - 1"></input>replace 1 passed<br/>
+						<input name="replace_2" type="button" value="replace - 2"></input>replace 2 passed<br/>
+						<input name="replace_3" type="button" value="replace - 3"></input>replace 3 passed<br/>
+						<input name="replace_4" type="button" value="replace - 4"></input>nested replace 4 passed<br/>
+						
+						<input name="replace_5" type="button" value="replace - 5"></input>replace 5 passed<br/>
+					</td>
+					<td>
+
+					</td>
+					
+					<td>
+						<input name="sizeof_test_1" type="button" value="sizeof_test_1"></input>sizeof_test_1 passed<br/>
+						<input name="sizeof_test_2" type="button" value="sizeof_test_2"></input>sizeof_test_2 passed<br/>
+						<input name="sizeof_test_3" type="button" value="sizeof_test_3"></input>sizeof_test_3 passed<br/>
+					</td>
+					<td>
+
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input name="instr_1" type="button" value="instr - 1"></input>instr 1 passed. found at: 9<br/>
+						<input name="instr_2" type="button" value="instr - 2"></input>instr 2 passed<br/>
+						<input name="instr_3" type="button" value="instr - 3"></input>instr 3 passed found at : 5<br/>
+						<input name="instr_4" type="button" value="instr - 4"></input>instr 4 passed found at : 16<br/>
+					</td>
+					<td>
+						
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input name="substr_1" type="button" value="substr - 1"></input>substr test 1 passed<br/>
+						<input name="substr_2" type="button" value="substr - 2"></input>substr test 2 passed<br/>
+						<input name="substr_3" type="button" value="substr - 3"></input>substr test 3 passed<br/>
+					</td>
+					<td>
+						
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						<input name="strlen_1" type="button" value="strlen - 1"></input>strlen 1 passed. string length is 15<br/>
+						<input name="strlen_2" type="button" value="strlen - 2"></input>strlen 2 passed. string length is 0<br/>
+						<input name="strlen_3" type="button" value="strlen - 3"></input>strlen 3 passed. 'öçıüğ length is 5<br/>
+					</td>
+					<td>
+						
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						<input name="select_test_1" type="button" value="select cursor - 1"></input><br/>
+						<input name="select_test_2" type="button" value="select cursor - 2"></input>mebs \ kayıt sayısı : 1<br/>
+					</td>
+					<td>
+						
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						<input name="insert_test_1" type="button" value="insert cursor - 1"></input>1  adet satır işlendi<br/>
+					</td>
+					<td>
+						
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						<input name="delete_test_1" type="button" value="delete cursor - 1"></input>1  adet satır işlendi<br/>
+					</td>
+					<td>
+						
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						<input name="update_test_1" type="button" value="update cursor - 1"></input>XX adet satır işlendi<br/>
+					</td>
+					<td>
+						
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						<input name="mix_test_1" type="button" value="mix test 1"></input>çğıü alican velican: 6<br/>
+					</td>
+					<td>
+						
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						<input name="plsql_test_1" type="button" value="PL/SQL test 1"></input><br/>
+					</td>
+					<td>
+						
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" style="text-align: center">
+						<input name="kill-session" type="button" value="Oturumu Kapat"></input>
+					</td>
+				</tr>	
+			</table>
+			
+		</controlblock>
+	
+
+	</body>
+</html>

@@ -1,0 +1,33 @@
+﻿<!DOCTYPE HTML SYSTEM "ht-sql.dtd">
+
+<html>
+
+<head>
+    <title>Sodium Closure Test</title>
+</head>
+
+<body>
+
+    <controlblock control-block-name="cbnav">
+
+        <table border="1">
+            <tr>
+                <td style="text-align: center">SUCCESS TESTS</td>
+                <td style="text-align: center">FAIL TESTS</td>
+                <td style="text-align: center">SUCCESS TESTS</td>
+                <td style="text-align: center">FAIL TESTS</td>
+            </tr>
+            <tr>
+                <td>
+                    <input name="closure_1" type="button" value="replace - 1"></input>closure 1 passed<br />
+                    <input name="closure_2" type="button" value="replace - 2"></input>closure 2 passed<br />
+                    <input name="closure_3" type="button" value="replace - 3"></input>closure 3 passed<br />
+                    <input name="closure_4" type="button" value="replace - 4"></input>closure 4 passed<br />
+                </td>
+            </tr>
+        </table>
+
+    </controlblock>
+
+</body>
+</html>

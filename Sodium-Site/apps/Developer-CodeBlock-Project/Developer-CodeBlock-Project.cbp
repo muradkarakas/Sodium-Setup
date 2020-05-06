@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Developer-CodeBlock-Project" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Release">
+				<Option output="bin/Release/Developer-CodeBlock-Project" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+			</Target>
+		</Build>
+		<Unit filename="../deps/colors.sqlx" />
+		<Unit filename="../deps/controller.sqlx" />
+		<Unit filename="../deps/departments.sqlx" />
+		<Unit filename="../deps/form_layout.sqlx" />
+		<Unit filename="../deps/locations_grid.sqlx" />
+		<Unit filename="../deps/locations_tree.sqlx" />
+		<Unit filename="../deps/logon.sqlx" />
+		<Unit filename="../deps/users.sqlx" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

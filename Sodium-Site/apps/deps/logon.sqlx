@@ -1,0 +1,62 @@
+
+void giris() {
+
+	char connResult;
+
+	:Session.authenticated = false;
+
+	if (:cb_logon.dbType is null) then
+		message('Error !', 'Database Vendor Name cannot be empty', 'error');
+		return;
+	end if;
+
+	if (:cb_logon.user is null) then
+		message('User name cannot be empty');
+		return;
+	end if;
+
+	if (:cb_logon.password is null) then
+		message('Password cannot be empty');
+		return;
+	end if;
+
+	if (:cb_logon.dbType == 'oracle') then
+		connResult = create_oracle_connection('default', '', 'XE', 'SODIUM_DEMO', '1234');
+	else 
+		if (:cb_logon.dbType == 'postgresql') then
+			connResult = create_postgresql_connection('default', 'localhost', 'postgres', 'postgres', '1234');
+		else
+			if (:cb_logon.dbType == 'mysql') then
+				connResult = create_mysql_connection('default', 'localhost', 'mysql', 'root', '1234');
+			else
+				message('invalid database vendor');
+				return;
+			end if;
+		end if;
+	end if;
+
+	if (connResult != '') then
+		message('Connection failed: ' || connResult);
+		return;
+	else
+		message('Connection successful');
+	end if;
+
+	rs = 	select count(*) sayi
+			from SODIUM_DEMO.users
+			where
+				user_name = :cb_logon.user and
+				password  = :cb_logon.password;
+
+	if (rs.sayi == '1') then
+		:Session.user 		= :cb_logon.user;
+		:Session.password 	= :cb_logon.password;
+		:Session.authenticated = true;
+		show_page('colors.frmx');
+	else
+		:Session.user 		= null;
+		:Session.password 	= null;
+		message('Invalid user name / password.');
+	end if;
+
+}
