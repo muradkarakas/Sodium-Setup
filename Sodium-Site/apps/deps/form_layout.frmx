@@ -138,7 +138,7 @@
                                                             <td colspan="4">
                                                                 <textarea name="ADDRESS" style="width: 280px"
                                                                     rows="10" data-type="char" column-name="ADDRESS">
-																				</textarea>
+																</textarea>
                                                             </td>
                                                         </tr>
                                                     </tbody>

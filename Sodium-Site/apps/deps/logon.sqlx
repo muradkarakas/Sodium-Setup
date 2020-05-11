@@ -52,7 +52,7 @@ void giris() {
 		:Session.user 		= :cb_logon.user;
 		:Session.password 	= :cb_logon.password;
 		:Session.authenticated = true;
-		show_page('colors.frmx');
+		show_page('form_layout.frmx');
 	else
 		:Session.user 		= null;
 		:Session.password 	= null;

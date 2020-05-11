@@ -25,7 +25,7 @@ CREATE TABLE  sodium_demo.cars
 	COLOR_ID numeric, 
 	PROVINCE_ID numeric, 
 	COUNTY_ID numeric, 
-	CAR_PHOTO numeric
+	CAR_PHOTO longblob
    ) ;
 
 CREATE TABLE  sodium_demo.COLORS 
@@ -56,7 +56,7 @@ CREATE TABLE  sodium_demo.DEPS_DETAILS
 	COUNTY_ID numeric , 
 	ADDRESS character varying(200), 
 	fax_number character varying(20), 
-	DEP_LOGO numeric
+	DEP_LOGO longblob
    ) ;
 
 CREATE TABLE  sodium_demo.EMP_DETAILS 
@@ -68,7 +68,7 @@ CREATE TABLE  sodium_demo.EMP_DETAILS
 
 CREATE TABLE  sodium_demo.EMPLOYEE_PHOTO 
    (	EMP_ID numeric not null primary key, 
-	EMPLOYEE_PHOTO numeric
+	EMPLOYEE_PHOTO longblob
    ) ;
 
 CREATE TABLE  sodium_demo.EMPLOYEES 
