@@ -31,7 +31,9 @@
                                 <br />
 								<input name="dbType" type="radio" value="postgresql" />&nbsp;POSTGRESQL
 								<br />
-							    <input name="dbType" type="radio" value="mysql" />&nbsp;MYSQL
+								<input name="dbType" type="radio" value="mysql" />&nbsp;MYSQL
+								<br />
+							    <input name="dbType" type="radio" value="sqlserver" />&nbsp;MS SQL SERVER
                             </td>
 						</tr>
                         <tr>

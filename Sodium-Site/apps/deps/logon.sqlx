@@ -29,8 +29,12 @@ void giris() {
 			if (:cb_logon.dbType == 'mysql') then
 				connResult = create_mysql_connection('default', 'localhost', 'mysql', 'root', '1234');
 			else
-				message('invalid database vendor');
-				return;
+				if (:cb_logon.dbType == 'sqlserver') then
+					connResult = create_sqlserver_connection('default', 'localhost', 'SQLEXPRESS', 'sodium_demo', 'sa', '1234');
+				else
+					message('invalid database vendor');
+					return;
+				end if;
 			end if;
 		end if;
 	end if;

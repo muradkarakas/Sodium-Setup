@@ -1,16 +1,18 @@
 USE master;
 
-ALTER DATABASE sodium_demo SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+IF EXISTS(select * from sys.databases where name = 'sodium_demo') ALTER DATABASE sodium_demo SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
 
-drop database if exists sodium_demo;
+IF EXISTS(select * from sys.databases where name = 'sodium_demo') drop database if exists sodium_demo;
 
 CREATE DATABASE sodium_demo;
 
 use sodium_demo;
 
-CREATE SEQUENCE  htsql;
+CREATE SCHEMA sodium_demo AUTHORIZATION dbo;
 
-CREATE TABLE  cars 
+CREATE SEQUENCE sodium_demo.htsql;
+
+CREATE TABLE  sodium_demo.cars 
    (	CAR_ID numeric not null primary key, 
 	EMP_ID numeric not null, 
 	CAR_YEAR character varying(20), 
@@ -21,29 +23,29 @@ CREATE TABLE  cars
 	CAR_PHOTO numeric
    ) ;
 
-CREATE TABLE  COLORS 
+CREATE TABLE  sodium_demo.COLORS 
    (	COLOR_ID numeric not null PRIMARY KEY , 
 	COLOR_NAME character varying(20) not null
    ) ;
 
-CREATE TABLE  COUNTIES 
+CREATE TABLE  sodium_demo.COUNTIES 
    (	COUNTY_ID numeric not null PRIMARY KEY, 
 	COUNTY_NAME character varying(20) not null, 
 	PROVINCE_ID numeric not null
    ) ;
 
-CREATE TABLE  COUNTRIES 
+CREATE TABLE  sodium_demo.COUNTRIES 
    (	COUNTRY_ID character varying(2) not null PRIMARY KEY , 
 	COUNTRY_NAME character varying(40) not null, 
 	REGION_ID numeric not null
    ) ;
 
-CREATE TABLE  DEPS 
+CREATE TABLE  sodium_demo.DEPS 
    (	DEP_ID numeric not null primary key, 
 	DEP_NAME character varying(20) not null
    ) ;
 
-CREATE TABLE  DEPS_DETAILS 
+CREATE TABLE  sodium_demo.DEPS_DETAILS 
    (	DEP_ID numeric not null primary key, 
 	PROVINCE_ID numeric , 
 	COUNTY_ID numeric , 
@@ -52,19 +54,19 @@ CREATE TABLE  DEPS_DETAILS
 	DEP_LOGO numeric
    ) ;
 
-CREATE TABLE  EMP_DETAILS 
+CREATE TABLE  sodium_demo.EMP_DETAILS 
    (	EMP_ID numeric not null primary key, 
 	BIRTH_DATE DATE, 
 	BIRTH_PLACE numeric
    ) ;
 
 
-CREATE TABLE  EMPLOYEE_PHOTO 
+CREATE TABLE  sodium_demo.EMPLOYEE_PHOTO 
    (	EMP_ID numeric not null primary key, 
 	EMPLOYEE_PHOTO numeric
    ) ;
 
-CREATE TABLE  EMPLOYEES 
+CREATE TABLE  sodium_demo.EMPLOYEES 
    (	EMP_ID numeric not null primary key,  
 	EMP_NAME character varying(20) not null, 
 	EMP_SURNAME character varying(20) not null, 
@@ -75,129 +77,123 @@ CREATE TABLE  EMPLOYEES
    ) ;
 
 
-CREATE TABLE  PROVINCES 
+CREATE TABLE  sodium_demo.PROVINCES 
    (	PROVINCE_ID numeric not null primary key,  
 	PROVINCE_NAME character varying(20) not null, 
 	COUNTRY_ID character varying(2) not null
    ) ;
 
-CREATE TABLE  REGIONS 
+CREATE TABLE  sodium_demo.REGIONS 
    (	REGION_ID numeric not null primary key,  
 	REGION_NAME character varying(25) not null 
    ) ;
 
-CREATE TABLE  ROLES 
+CREATE TABLE  sodium_demo.ROLES 
    (	ROLE_NAME character varying(20) not null primary key  
    ) ;
 
-CREATE TABLE  USER_ROLES 
+CREATE TABLE  sodium_demo.USER_ROLES 
    (	USER_NAME character varying(20)  not null, 
 	ROLE_NAME character varying(20)  not null, 
     primary key(user_name, role_name)
    ) ;
 
-CREATE TABLE  USERS 
+CREATE TABLE  sodium_demo.USERS 
    (	USER_NAME character varying(20) not null primary key  , 
 	PASSWORD character varying(20) not null
    ) ;
 
   
-ALTER TABLE  user_roles
+ALTER TABLE  sodium_demo.user_roles
     ADD CONSTRAINT user_roles_fk1 FOREIGN KEY (user_name)
-    REFERENCES  users (user_name)
+    REFERENCES  sodium_demo.users (user_name)  
     ON UPDATE NO ACTION
     ON DELETE NO ACTION;
 
-ALTER TABLE  roles
+ALTER TABLE  sodium_demo.roles
     ADD CONSTRAINT roles_fk1 FOREIGN KEY (role_name)
-    REFERENCES  roles (role_name)
+    REFERENCES  sodium_demo.roles (role_name)  
     ON UPDATE NO ACTION
     ON DELETE NO ACTION;
 
-ALTER TABLE  provinces
+ALTER TABLE  sodium_demo.provinces
     ADD CONSTRAINT provinces_fk1 FOREIGN KEY (country_id)
-    REFERENCES  countries (country_id)
+    REFERENCES  sodium_demo.countries (country_id)  
     ON UPDATE NO ACTION
     ON DELETE NO ACTION;
 
-ALTER TABLE  countries
+ALTER TABLE  sodium_demo.countries
     ADD CONSTRAINT countries_fk1 FOREIGN KEY (region_id)
-    REFERENCES  regions (region_id)
+    REFERENCES  sodium_demo.regions (region_id)  
     ON UPDATE NO ACTION
     ON DELETE NO ACTION;
 
-ALTER TABLE  counties
+ALTER TABLE  sodium_demo.counties
     ADD CONSTRAINT counties_fk1 FOREIGN KEY (province_id)
-    REFERENCES  provinces (province_id)
+    REFERENCES  sodium_demo.provinces (province_id)  
     ON UPDATE NO ACTION
     ON DELETE NO ACTION;
 
-ALTER TABLE  cars
+ALTER TABLE  sodium_demo.cars
     ADD CONSTRAINT cars_fk1 FOREIGN KEY (color_id)
-    REFERENCES  colors (color_id)
+    REFERENCES  sodium_demo.colors (color_id)  
     ON UPDATE NO ACTION
     ON DELETE NO ACTION;
 
-ALTER TABLE  cars
+ALTER TABLE  sodium_demo.cars
     ADD CONSTRAINT cars_fk2 FOREIGN KEY (province_id)
-    REFERENCES  provinces (province_id)
+    REFERENCES  sodium_demo.provinces (province_id)  
     ON UPDATE NO ACTION
     ON DELETE NO ACTION;
 
-ALTER TABLE  cars
+ALTER TABLE  sodium_demo.cars
     ADD CONSTRAINT cars_fk3 FOREIGN KEY (county_id)
-    REFERENCES  counties (county_id)
+    REFERENCES  sodium_demo.counties (county_id)  
     ON UPDATE NO ACTION
     ON DELETE NO ACTION;
 
-ALTER TABLE  cars
+ALTER TABLE  sodium_demo.cars
     ADD CONSTRAINT cars_fk4 FOREIGN KEY (emp_id)
-    REFERENCES  employees (emp_id)
+    REFERENCES  sodium_demo.employees (emp_id)  
     ON UPDATE NO ACTION
     ON DELETE NO ACTION;
     
-ALTER TABLE  deps_details
+ALTER TABLE  sodium_demo.deps_details
     ADD CONSTRAINT deps_details_fk1 FOREIGN KEY (dep_id)
-    REFERENCES  deps (dep_id)
+    REFERENCES  sodium_demo.deps (dep_id)  
     ON UPDATE NO ACTION
     ON DELETE NO ACTION;
 
-ALTER TABLE  deps_details
+ALTER TABLE  sodium_demo.deps_details
     ADD CONSTRAINT deps_details_fk2 FOREIGN KEY (province_id)
-    REFERENCES  provinces (province_id)
+    REFERENCES  sodium_demo.provinces (province_id)  
     ON UPDATE NO ACTION
     ON DELETE NO ACTION;
 
-ALTER TABLE  deps_details
+ALTER TABLE  sodium_demo.deps_details
     ADD CONSTRAINT deps_details_fk3 FOREIGN KEY (county_id)
-    REFERENCES  counties (county_id)
+    REFERENCES  sodium_demo.counties (county_id)  
     ON UPDATE NO ACTION
     ON DELETE NO ACTION;
    
-ALTER TABLE  emp_details
+ALTER TABLE  sodium_demo.emp_details
     ADD CONSTRAINT emp_details_fk1 FOREIGN KEY (emp_id)
-    REFERENCES  employees (emp_id)
+    REFERENCES  sodium_demo.employees (emp_id)  
     ON UPDATE NO ACTION
     ON DELETE NO ACTION;
     
-ALTER TABLE  employee_photo
+ALTER TABLE  sodium_demo.employee_photo
     ADD CONSTRAINT employee_photo_fk1 FOREIGN KEY (emp_id)
-    REFERENCES  employees (emp_id)
+    REFERENCES  sodium_demo.employees (emp_id)  
     ON UPDATE NO ACTION
     ON DELETE NO ACTION;
     
-ALTER TABLE  employees
+ALTER TABLE  sodium_demo.employees
     ADD CONSTRAINT employees_fk1 FOREIGN KEY (dep_id)
-    REFERENCES  deps (dep_id)
+    REFERENCES  sodium_demo.deps (dep_id)  
     ON UPDATE NO ACTION
     ON DELETE NO ACTION;
     
-Insert into  ROLES (ROLE_NAME) values ('ADMIN');
-Insert into  USERS (USER_NAME,PASSWORD) values ('admin','1234');
-Insert into  USER_ROLES (USER_NAME,ROLE_NAME) values ('admin','ADMIN');
-
-
-
-
-
-
+Insert into  sodium_demo.ROLES (ROLE_NAME) values ('ADMIN');
+Insert into  sodium_demo.USERS (USER_NAME,PASSWORD) values ('admin','1234');
+Insert into  sodium_demo.USER_ROLES (USER_NAME,ROLE_NAME) values ('admin','ADMIN');

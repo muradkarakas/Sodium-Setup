@@ -8,8 +8,8 @@
             "type": "sodium",
             "request": "attach",
             "name": "Sodium Debugger",
-            "sessionId": 48351,
-            "sdPath": "C:\\projects\\Sodium\\Setup\\SodiumDebugger.exe",
+            "sessionId": 24315,
+            "sdPath": "C:\\Sodium\\Sodium-Setup\\SodiumDebugger.exe",
             "trace": true
         }
     ]

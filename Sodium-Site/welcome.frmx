@@ -148,6 +148,13 @@
                 </controlblock>
             </td>
             <td style="width: 25px"></td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;
+            </td>
+        </tr>
+        <tr>
             <td style="border: 0px solid blue;">
                 <controlblock control-block-name="cb_postgresql">
                     <table>
@@ -204,6 +211,80 @@
             </td>
 
             <td style="width: 25px"></td>
+
+            <td style="border: 0px solid blue;">
+                <controlblock control-block-name="cb_sqlserver">
+                    <table>
+                        <thead>
+                            <tr style="margin-left: auto; margin-right: auto">
+                                <td style="text-align: center" colspan="2">
+                                    <b><span style="color: red;">SQL SERVER CONNECTION TEST</span></b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    &nbsp;
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="text-align: right">Hostname:
+                                </td>
+                                <td>
+                                    <input name="hostname" type="text"
+                                        data-type="char" value="localhost" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: right">Instance:
+                                </td>
+                                <td>
+                                    <input name="instance" type="text"
+                                        data-type="char" value="SQLEXPRESS" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: right">Database:
+                                </td>
+                                <td>
+                                    <input name="database" type="text"
+                                        data-type="char" value="master" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: right">Database User Name
+                                </td>
+                                <td>
+                                    <input name="user" type="text"
+                                        data-type="char" value="sa" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: right">Database Password:
+                                </td>
+                                <td>
+                                    <input name="password" type="text"
+                                        data-type="char" value="1234" />
+                                </td>
+
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td style="text-align: center"
+                                    colspan="2">
+                                    <input name="logon2sqlserver"
+                                        type="button" value="Login to MS Sql Server" />
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </controlblock>
+            </td>
+
+            <td style="width: 25px"></td>
+
             <td style="border: 0px solid blue;">
                 <controlblock control-block-name="cb_redis">
                     <table>
