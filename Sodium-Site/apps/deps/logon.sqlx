@@ -21,7 +21,7 @@ void giris() {
 	end if;
 
 	if (:cb_logon.dbType == 'oracle') then
-		connResult = create_oracle_connection('default', '', 'XE', 'SODIUM_DEMO', '1234');
+		connResult = create_oracle_connection('default', '', 'XE', 'system', '1234');
 	else 
 		if (:cb_logon.dbType == 'postgresql') then
 			connResult = create_postgresql_connection('default', 'localhost', 'postgres', 'postgres', '1234');
@@ -56,7 +56,7 @@ void giris() {
 		:Session.user 		= :cb_logon.user;
 		:Session.password 	= :cb_logon.password;
 		:Session.authenticated = true;
-		show_page('form_layout.frmx');
+		show_page('colors.frmx');
 	else
 		:Session.user 		= null;
 		:Session.password 	= null;

@@ -10,7 +10,9 @@ use sodium_demo;
 
 CREATE SCHEMA sodium_demo AUTHORIZATION dbo;
 
-CREATE SEQUENCE sodium_demo.htsql;
+CREATE SEQUENCE sodium_demo.htsql  
+    START WITH 0  
+    INCREMENT BY 1 ; 
 
 CREATE TABLE  sodium_demo.cars 
    (	CAR_ID numeric not null primary key, 

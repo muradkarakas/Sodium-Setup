@@ -16,58 +16,87 @@
 				<table style="border: 0px solid; margin: 0 auto">
 					<thead>
 						<tr>
-							<td style="text-align: center; font-size: medium;" colspan="2">
+							<td style="text-align: center; font-size: medium;" colspan="8">
 								<b>WELCOME</b>
 							</td>
 						</tr>
+						<tr>
+							<td style="text-align: center; font-size: medium;" colspan="8">
+								&nbsp;&nbsp;&nbsp;
+							</td>
+						</tr>
+						<tr>
+							<td style="text-align: center; font-size: medium;">
+								<img src="../../resources/images/oracle.png" width="75px">
+								<br/>
+								<input name="dbType" type="radio" value="oracle" />
+							</td>
+							<td style="width: 25px;">
+								&nbsp;
+							</td>
+							<td style="text-align: center; font-size: medium;">
+								<img src="../../resources/images/postgresql.png" width="70px">
+								<br/>
+								<input name="dbType" type="radio" value="postgresql" />
+							</td>
+							<td style="width: 25px;">
+								&nbsp;
+							</td>
+							<td style="text-align: center; font-size: medium;">
+								<img src="../../resources/images/mysql.png" width="75px">
+								<br/>
+								<input name="dbType" type="radio" value="mysql" />
+							</td>
+							<td style="width: 25px;">
+								&nbsp;
+							</td>
+							<td style="text-align: center; font-size: medium;">
+								<img src="../../resources/images/ms-sqlserver.png" width="65px">
+								<br/>
+								<input name="dbType" type="radio" value="sqlserver" />
+							</td>
+						</tr>
 					</thead>
-					<tbody>
-						<tr>
-							<td>
-								<b>Database:</b>
-							</td>
-							<td>
-								<input name="dbType" type="radio" value="oracle" />&nbsp;ORACLE
-                                <br />
-								<input name="dbType" type="radio" value="postgresql" />&nbsp;POSTGRESQL
-								<br />
-								<input name="dbType" type="radio" value="mysql" />&nbsp;MYSQL
-								<br />
-							    <input name="dbType" type="radio" value="sqlserver" />&nbsp;MS SQL SERVER
-                            </td>
-						</tr>
+					<tbody>						
                         <tr>
-							<td>
-								<b>User Name:</b>
-							</td>
-							<td>
-								<input name="user" type="text" data-type="char" value="admin" style="width: 150px"/>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<b>Password:</b>
-							</td>
-							<td>
-								<input name="password" type="password" data-type="char" value="1234" style="width: 150px"/>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<b>Theme:</b>
-							</td>
-							<td>
-								<select name="theme-selector" style="width: 150px">
-									<option value="default">Sodium Default</option>
-									<option value="ocean_blue">Sodium Blue</option>
-									<option value="red">Sodium Red</option>
-								</select>
+							<td colspan="10" style="text-align: center;">
+								<table style="width: 100%;">
+									<tr>
+										<td style="text-align: right;" colspan="2">
+											<b>User Name:</b>
+										</td>
+										<td style="text-align: left;" colspan="4">	
+											<input name="user" type="text" data-type="char" value="admin" style="width: 150px"/>
+										</td>
+									</tr>
+									<tr>
+										<td style="text-align: right;" colspan="2">
+											<b>Password:</b>
+										</td>
+										<td style="text-align: left;" colspan="4">	
+											<input name="password" type="password" data-type="char" value="1234" style="width: 150px"/>
+										</td>
+									</tr>
+									<tr>
+										<td style="text-align: right;" colspan="2">
+											<b>Theme:</b>
+										</td>
+										<td style="text-align: left;" colspan="4">	
+											<select name="theme-selector" style="width: 150px">
+												<option value="default">Sodium Default</option>
+												<option value="ocean_blue">Sodium Blue</option>
+												<option value="red">Sodium Red</option>
+											</select>
+										</td>
+									</tr>
+								</table>
 							</td>
 						</tr>
 					</tbody>
 					<tfoot>
 						<tr>
-							<td style="text-align: center;" colspan="2">
+							<td style="text-align: center;" colspan="8">
+								<br/>
 								<input name="giris" type="button" value="Login" style="width: 100px"/>
 							</td>
 						</tr>

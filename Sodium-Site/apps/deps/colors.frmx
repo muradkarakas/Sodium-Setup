@@ -58,7 +58,7 @@
 											<tr>
 												<td>
 													<input name="color_id"  style="width: 60px"
-														sequence-schema-name="SODIUM_DEMO" sequence-name="htsql" column-name="color_id" type="text"/>
+														sequence-schema-name="SODIUM_DEMO" sequence-name="htsql" column-name="color_id" type="text" data-type="number"/>
 												</td>
 												<td>
 													<input name="color_name" style="width: 125px"
