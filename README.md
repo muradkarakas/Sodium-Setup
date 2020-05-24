@@ -4,7 +4,7 @@
 
 Sodium is a new Domain-Specific Language \(DSL\) especially designed for creating/developing state of the art web based business applications. It has been under development at the moment but ready to be evaluated by developers.
 
-Frontend developer, C developer, database developer etc. are needed. If you want be a contributer, please contact. \([About Me](about-me.md)\).
+Frontend developer, C developer, database developer etc. are needed. If you want be a contributer, please contact. \([About Me](https://app.gitbook.com/@muradkarakas/s/sodium_documentation/about-me)\).
 
 ## What is the Motivation To Develop a New Software Language ?
 
@@ -16,7 +16,7 @@ Frontend developer, C developer, database developer etc. are needed. If you want
     * learn some advanced topics like transaction management, dependency injection, persistence, object-relational mapping etc.
     * upgrade frameworks/libraries/third party add-ons etc
     * make configuration You should try Sodium.
-* [Native SQL support](language-reference/native-sql-support.md) You can write SQL commands/scripts in code behind file as a first class native language commands. Unlike LINQ, you do not need to learn a special syntax for SQL commands. All syntax are accepted if it is a valid for database server. For more information [Native SQL support](language-reference/native-sql-support.md). Example: 
+* [Native SQL support](https://muradkarakas.gitbook.io/sodium_documentation/language-reference/native-sql-support) You can write SQL commands/scripts in code behind file as a first class native language commands. Unlike LINQ, you do not need to learn a special syntax for SQL commands. All syntax are accepted if it is a valid for database server. For more information [Native SQL support](https://muradkarakas.gitbook.io/sodium_documentation/language-reference/native-sql-support). Example: 
 
 ```text
 void button_clicked() {
@@ -63,7 +63,9 @@ void button_clicked() {
 
 * **Server and Client Side support**  Current web based languages/frameworks are designed to run either on server or client. Sodium is designed to run on both. All things are handled Sodium engine transparently.
 * **No dependency**  All features written on this list are provided without third-party plug-ins, frameworks, code libraries, etc.
-* **Easy to learn** **On server**: You do not need to learn some advanced topics/libraries such as Object Relational Mappings \(ORM\) tools, dependency injection, transaction management, user interface libraries, design patterns, etc. **On client:** No java script knowledge required, no CSS knowledge required, No library/framework required \(JQuery, AngularJS, ExtJs, bootstrap for mobile support\)
+* **Easy to learn** 
+  **On server**: You do not need to learn some advanced topics/libraries such as Object Relational Mappings \(ORM\) tools, dependency injection, transaction management, user interface libraries, design patterns, etc.
+  **On client:** No java script knowledge required, no CSS knowledge required, No library/framework required \(JQuery, AngularJS, ExtJs, bootstrap for mobile support\)
 * **Native cached memory database support**
 * **Easy to maintain** All requirements are handled in a standard way so developers easily find the code blocks to make corrections.
 * **Quick and Easy Installation** No database repository needed No ODBC or OLE DB installation/configuration needed.
