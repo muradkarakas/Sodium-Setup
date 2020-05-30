@@ -44,7 +44,7 @@
 							<td>
 
 								<datablock data-block-name="colors" data-schema-name="SODIUM_DEMO" data-source-name="colors" key-column-name="color_id"
-									where-clause="" order-by-clause="" record-count="10" >
+									where-clause="" order-by-clause="" record-count="5" >
 
 									<table>
 										<thead>
